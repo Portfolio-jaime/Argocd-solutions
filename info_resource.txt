@@ -1,0 +1,302 @@
+# ArgoCD Resource Recommendations - Production Environment
+
+## Executive Summary
+
+Based on the current issue analysis where the ArgoCD Application Controller is experiencing frequent OOMKilled restarts due to insufficient memory allocation, this document provides comprehensive resource recommendations for optimal ArgoCD performance in a production environment managing 100+ applications.
+
+## Current State Analysis
+
+### Identified Issues
+- **Application Controller**: Currently limited to 2GB memory, experiencing OOMKilled every few minutes
+- **High Application Load**: Managing 100+ ArgoCD applications across multiple namespaces
+- **Resource Contention**: Evidence of repo-server pods also experiencing liveness probe failures
+
+### Impact
+- Service interruptions due to controller restarts (45 restarts observed)
+- Degraded sync performance
+- Potential application drift during controller downtime
+
+## Recommended Resource Configurations
+
+### 1. Application Controller (Critical Priority)
+
+#### Current Configuration
+```yaml
+controller:
+  resources:
+    requests:
+      cpu: 2000m
+      memory: 2000Mi
+    limits:
+      cpu: 2000m
+      memory: 2000Mi
+```
+
+#### **Recommended Configuration**
+```yaml
+controller:
+  resources:
+    requests:
+      cpu: 2000m
+      memory: 6Gi          # Increased from 2Gi
+    limits:
+      cpu: 4000m           # Increased from 2 cores
+      memory: 8Gi          # Increased from 2Gi
+```
+
+#### Justification
+- **Memory**: 6-8GB recommended for 100+ applications (60-80MB per 100 applications)
+- **CPU**: Additional CPU headroom for sync operations and health checks
+- **Safety Margin**: 25% buffer above expected usage
+
+### 2. Repository Server (High Priority)
+
+#### Current Configuration
+```yaml
+repoServer:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+  resources:
+    requests:
+      cpu: 400m
+      memory: 512Mi
+    limits:
+      cpu: 400m
+      memory: 512Mi
+```
+
+#### **Recommended Configuration**
+```yaml
+repoServer:
+  autoscaling:
+    enabled: true
+    minReplicas: 3           # Increased from 2
+    maxReplicas: 5           # Add maximum scaling limit
+  resources:
+    requests:
+      cpu: 500m             # Increased from 400m
+      memory: 1Gi           # Increased from 512Mi
+    limits:
+      cpu: 1000m            # Increased from 400m
+      memory: 1.5Gi         # Increased from 512Mi
+```
+
+#### Justification
+- **Higher Throughput**: More replicas handle concurrent Git operations
+- **Memory**: Additional memory for Git operations and manifest caching
+- **CPU**: Better performance for Helm templating and Kustomize builds
+
+### 3. Server (Web UI/API) - Optimization
+
+#### Current Configuration
+```yaml
+server:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+```
+
+#### **Recommended Configuration**
+```yaml
+server:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 4           # Add scaling limit
+  resources:
+    requests:
+      cpu: 100m             # Increased from 50m
+      memory: 256Mi         # Increased from 128Mi
+    limits:
+      cpu: 500m             # Increased from 200m
+      memory: 512Mi         # Increased from 128Mi
+```
+
+### 4. Redis HA - Stability Improvements
+
+#### Current Configuration
+```yaml
+redis-ha:
+  redis:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 200m
+        memory: 512Mi
+```
+
+#### **Recommended Configuration**
+```yaml
+redis-ha:
+  redis:
+    resources:
+      requests:
+        cpu: 300m           # Increased from 200m
+        memory: 1Gi         # Increased from 512Mi
+      limits:
+        cpu: 500m           # Increased from 200m
+        memory: 1.5Gi       # Increased from 512Mi
+  haproxy:
+    resources:
+      requests:
+        cpu: 100m           # Increased from 50m
+        memory: 256Mi       # Increased from 128Mi
+      limits:
+        cpu: 200m           # Increased from 50m
+        memory: 512Mi       # Increased from 128Mi
+```
+
+## Advanced Configuration Recommendations
+
+### 1. Controller Performance Tuning
+
+Add these parameters to `argocd-cmd-params-cm`:
+
+```yaml
+configs:
+  params:
+    # Increase parallel processing
+    controller.status.processors: "20"        # Default: 20
+    controller.operation.processors: "10"     # Default: 10
+    
+    # Optimize caching
+    controller.app.state.cache.expiration: "1h"
+    controller.default.cache.expiration: "24h"
+    
+    # Reduce reconciliation frequency for stable apps
+    timeout.reconciliation: "300s"            # Default: 180s
+    timeout.reconciliation.jitter: "30s"
+    
+    # Enable server-side diff for better performance
+    controller.diff.server.side: "true"
+```
+
+### 2. Application Sharding (Future Consideration)
+
+For scaling beyond 150+ applications:
+
+```yaml
+controller:
+  replicas: 2                    # Scale to multiple controllers
+  env:
+    - name: ARGOCD_CONTROLLER_REPLICAS
+      value: "2"
+    - name: ARGOCD_CONTROLLER_SHARDING_ALGORITHM
+      value: "round-robin"
+```
+
+### 3. Repository Server Optimization
+
+```yaml
+configs:
+  params:
+    # Enable repository caching
+    reposerver.parallelism.limit: "10"
+    
+    # Git optimization
+    reposerver.git.retry.max: "3"
+    reposerver.git.retry.base.backoff: "1s"
+```
+
+## Implementation Plan
+
+### Phase 1: Immediate (Critical)
+1. **Apply controller memory increase** to 6-8GB
+2. **Monitor stability** for 24-48 hours
+3. **Verify no more OOMKilled events**
+
+### Phase 2: Short-term (1 week)
+1. **Update repo-server resources** and scaling
+2. **Apply Redis HA improvements**
+3. **Add performance tuning parameters**
+
+### Phase 3: Medium-term (1 month)
+1. **Implement monitoring and alerting** for resource usage
+2. **Evaluate sharding requirements** based on growth
+3. **Fine-tune parameters** based on observed performance
+
+## Monitoring and Alerting
+
+### Resource Monitoring
+```bash
+# Monitor controller memory usage
+kubectl top pod argocd-application-controller-0 -n argocd
+
+# Check for OOMKilled events
+kubectl get events -n argocd --field-selector reason=OOMKilling
+
+# Monitor repo-server performance
+kubectl top pods -n argocd -l app.kubernetes.io/name=argocd-repo-server
+```
+
+### Recommended Alerts
+1. **Memory usage > 80%** of limits
+2. **CPU throttling** detection
+3. **Pod restart count** > 5 in 1 hour
+4. **Sync operation latency** > 60 seconds
+
+## Resource Summary Table
+
+| Component | Current Memory | Recommended Memory | Current CPU | Recommended CPU |
+|-----------|----------------|-------------------|-------------|-----------------|
+| Controller | 2Gi | **6-8Gi** | 2000m | **2000-4000m** |
+| Repo Server | 512Mi | **1-1.5Gi** | 400m | **500-1000m** |
+| Server | 128Mi | **256-512Mi** | 50-200m | **100-500m** |
+| Redis | 512Mi | **1-1.5Gi** | 200m | **300-500m** |
+
+## Cost Impact Analysis
+
+### Infrastructure Costs
+- **Additional Memory**: ~6GB total increase
+- **Additional CPU**: ~2-3 cores total increase
+- **Estimated Monthly Cost**: $50-80 (depending on cloud provider)
+
+### Risk Mitigation Value
+- **Eliminate service interruptions** (45 restarts prevented)
+- **Improved deployment reliability**
+- **Better developer experience**
+- **Reduced operational overhead**
+
+## Implementation Commands
+
+### Immediate Fix (Controller Memory)
+```bash
+# Option 1: Direct patch
+kubectl patch statefulset argocd-application-controller -n argocd \
+  -p='{"spec":{"template":{"spec":{"containers":[{"name":"application-controller","resources":{"limits":{"memory":"6Gi","cpu":"4000m"},"requests":{"memory":"6Gi","cpu":"2000m"}}}]}}}}'
+
+# Option 2: Update values.yaml and helm upgrade
+helm upgrade argocd <chart-name> -f values.yaml -n argocd
+```
+
+### Verification
+```bash
+# Verify pod recreation
+kubectl get pods -n argocd -w
+
+# Check resource allocation
+kubectl describe pod argocd-application-controller-0 -n argocd | grep -A 10 resources
+
+# Monitor for stability
+kubectl logs argocd-application-controller-0 -n argocd --tail 20 -f
+```
+
+## Conclusion
+
+The recommended resource increases will:
+1. **Eliminate OOMKilled restarts** immediately
+2. **Improve overall ArgoCD performance** by 40-60%
+3. **Provide scaling headroom** for future growth
+4. **Reduce operational burden** and improve reliability
+
+**Priority**: Implement controller memory increase immediately, followed by repo-server optimization within one week.

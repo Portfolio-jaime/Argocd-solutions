@@ -1,0 +1,16 @@
+# ArgoCD Solutions Manager - Python Requirements
+# Este archivo lista las dependencias de Python necesarias
+
+# Dependencias del sistema requeridas (no instalables via pip):
+# - tkinter (generalmente incluido con Python)
+# - kubectl
+# - helm  
+# - git
+# - jq
+# - yq
+
+# Para verificar dependencias, usar:
+# python3 -c "import tkinter; print('✅ tkinter disponible')"
+
+# Nota: La aplicación usa principalmente la biblioteca estándar de Python
+# y herramientas del sistema. No requiere dependencias externas adicionales.
