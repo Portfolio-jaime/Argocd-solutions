@@ -1,0 +1,20 @@
+site_name: 'ArgoCD Solutions'
+site_description: 'Comprehensive ArgoCD management and diagnostic tools'
+repo_url: https://github.com/Portfolio-jaime/Argocd-solutions
+edit_uri: edit/main/docs
+
+plugins:
+  - techdocs-core
+
+# For sidebar navigation on https://backstage.io/, see `microsite/sidebars.json`
+nav:
+  - Overview:
+      - Getting started: 'index.md'
+  - Tools:
+      - Maintenance: 'maintenance.md'
+      - Validation: 'validation.md'
+      - Updates: 'updates.md'
+      - Performance: 'performance.md'
+      - Security: 'security.md'
+  - API Reference: 'api.md'
+  - Troubleshooting: 'troubleshooting.md'
