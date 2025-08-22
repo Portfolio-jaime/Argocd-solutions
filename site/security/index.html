@@ -1,0 +1,1738 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive ArgoCD management and diagnostic tools">
+      
+      
+      
+      
+        <link rel="prev" href="../performance/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Security - ArgoCD Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analisis-de-seguridad" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ArgoCD Solutions" class="md-header__button md-logo" aria-label="ArgoCD Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ArgoCD Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Security
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Portfolio-jaime/Argocd-solutions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ArgoCD Solutions" class="md-nav__button md-logo" aria-label="ArgoCD Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ArgoCD Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Portfolio-jaime/Argocd-solutions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maintenance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security-analyzer" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Security Analyzer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security Analyzer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descripción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características Avanzadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-puntuacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Sistema de Puntuación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Sistema de Puntuación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-score-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Score Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisis-de-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Análisis de Autenticación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Análisis de Autenticación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-sign-on-sso-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Sign-On (SSO) Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-management-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Management Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisis-de-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Análisis de Autorización
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Análisis de Autorización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rbac-policy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBAC Policy Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security-analyzer" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Security Analyzer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security Analyzer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descripción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características Avanzadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-puntuacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Sistema de Puntuación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Sistema de Puntuación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-score-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Score Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisis-de-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Análisis de Autenticación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Análisis de Autenticación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-sign-on-sso-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Sign-On (SSO) Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-management-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Management Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisis-de-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Análisis de Autorización
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Análisis de Autorización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rbac-policy-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBAC Policy Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Portfolio-jaime/Argocd-solutions/edit/main/docs/security.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="analisis-de-seguridad">Análisis de Seguridad<a class="headerlink" href="#analisis-de-seguridad" title="Permanent link">&para;</a></h1>
+<p>Herramientas comprehensivas para análisis y auditoría de seguridad de ArgoCD.</p>
+<h2 id="security-analyzer">🔐 Security Analyzer<a class="headerlink" href="#security-analyzer" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">&para;</a></h3>
+<p>Analizador completo de seguridad para instalaciones ArgoCD con sistema de puntuación y recomendaciones de remediación.</p>
+<h3 id="ubicacion">Ubicación<a class="headerlink" href="#ubicacion" title="Permanent link">&para;</a></h3>
+<p><code>Security_analyzer/security_analyzer.sh</code></p>
+<h3 id="caracteristicas-avanzadas">Características Avanzadas<a class="headerlink" href="#caracteristicas-avanzadas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sistema de Puntuación</strong>: Score de seguridad 0-100</li>
+<li><strong>Análisis Multi-Categoría</strong>: Autenticación, autorización, red, secretos</li>
+<li><strong>Compliance Framework</strong>: SOC2, ISO27001 compatibility</li>
+<li><strong>Recomendaciones Específicas</strong>: Acciones concretas de remediación</li>
+<li><strong>Reportes Detallados</strong>: Por categoría con priorización</li>
+<li><strong>Integración CI/CD</strong>: Validación automática en pipelines</li>
+</ul>
+<h3 id="uso">Uso<a class="headerlink" href="#uso" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Análisis completo de seguridad</span>
+./Security_analyzer/security_analyzer.sh
+
+<span class="c1"># Análisis específico por categoría</span>
+./Security_analyzer/security_analyzer.sh<span class="w"> </span>--category<span class="w"> </span>authentication
+
+<span class="c1"># Generar reporte compliance</span>
+./Security_analyzer/security_analyzer.sh<span class="w"> </span>--compliance<span class="w"> </span>soc2
+
+<span class="c1"># Modo silencioso para CI/CD</span>
+./Security_analyzer/security_analyzer.sh<span class="w"> </span>--silent<span class="w"> </span>--exit-code
+
+<span class="c1"># Exportar reporte detallado</span>
+./Security_analyzer/security_analyzer.sh<span class="w"> </span>--export-json<span class="w"> </span>&gt;<span class="w"> </span>security_report.json
+</code></pre></div></td></tr></table></div>
+<h2 id="sistema-de-puntuacion">📊 Sistema de Puntuación<a class="headerlink" href="#sistema-de-puntuacion" title="Permanent link">&para;</a></h2>
+<h3 id="security-score-overview">Security Score Overview<a class="headerlink" href="#security-score-overview" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>🔐<span class="w"> </span>ArgoCD<span class="w"> </span>Security<span class="w"> </span>Analysis<span class="w"> </span><span class="nv">Report</span>
+<span class="o">=================================</span>
+
+🏆<span class="w"> </span>Overall<span class="w"> </span>Security<span class="w"> </span>Score:<span class="w"> </span><span class="m">76</span>/100<span class="w"> </span><span class="o">(</span>Good<span class="o">)</span>
+
+📋<span class="w"> </span>Category<span class="w"> </span>Breakdown:
+┌─────────────────────┬───────┬────────┬──────────────┐
+│<span class="w"> </span>Category<span class="w">            </span>│<span class="w"> </span>Score<span class="w"> </span>│<span class="w"> </span>Status<span class="w"> </span>│<span class="w"> </span>Issues<span class="w">       </span>│
+├─────────────────────┼───────┼────────┼──────────────┤
+│<span class="w"> </span>🔑<span class="w"> </span>Authentication<span class="w">   </span>│<span class="w"> </span><span class="m">85</span>/100│<span class="w"> </span>✅<span class="w"> </span>Good│<span class="w"> </span><span class="m">2</span><span class="w"> </span>Minor<span class="w">      </span>│
+│<span class="w"> </span>🛡️<span class="w">  </span>Authorization<span class="w">   </span>│<span class="w"> </span><span class="m">72</span>/100│<span class="w"> </span>⚠️<span class="w"> </span>Fair<span class="w"> </span>│<span class="w"> </span><span class="m">3</span><span class="w"> </span>Medium<span class="w">     </span>│
+│<span class="w"> </span>🌐<span class="w"> </span>Network<span class="w"> </span>Security<span class="w"> </span>│<span class="w"> </span><span class="m">90</span>/100│<span class="w"> </span>✅<span class="w"> </span>Exc.<span class="w"> </span>│<span class="w"> </span><span class="m">1</span><span class="w"> </span>Low<span class="w">        </span>│
+│<span class="w"> </span>🔒<span class="w"> </span>Secret<span class="w"> </span>Management│<span class="w"> </span><span class="m">65</span>/100│<span class="w"> </span>⚠️<span class="w"> </span>Fair<span class="w"> </span>│<span class="w"> </span><span class="m">4</span><span class="w"> </span>Medium<span class="w">     </span>│
+│<span class="w"> </span>📋<span class="w"> </span>Configuration<span class="w">    </span>│<span class="w"> </span><span class="m">78</span>/100│<span class="w"> </span>✅<span class="w"> </span>Good│<span class="w"> </span><span class="m">2</span><span class="w"> </span>Medium<span class="w">     </span>│
+│<span class="w"> </span>🔍<span class="w"> </span>Audit<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Logging<span class="w"> </span>│<span class="w"> </span><span class="m">82</span>/100│<span class="w"> </span>✅<span class="w"> </span>Good│<span class="w"> </span><span class="m">1</span><span class="w"> </span>Medium<span class="w">     </span>│
+└─────────────────────┴───────┴────────┴──────────────┘
+
+🎯<span class="w"> </span>Priority<span class="w"> </span>Actions:
+<span class="m">1</span>.<span class="w"> </span>🔴<span class="w"> </span>HIGH:<span class="w"> </span>Enable<span class="w"> </span>TLS<span class="w"> </span><span class="k">for</span><span class="w"> </span>internal<span class="w"> </span>communications
+<span class="m">2</span>.<span class="w"> </span>🟡<span class="w"> </span>MED:<span class="w">  </span>Implement<span class="w"> </span>least-privilege<span class="w"> </span>RBAC<span class="w"> </span>policies<span class="w">  </span>
+<span class="m">3</span>.<span class="w"> </span>🟡<span class="w"> </span>MED:<span class="w">  </span>Configure<span class="w"> </span>secret<span class="w"> </span>encryption<span class="w"> </span>at<span class="w"> </span>rest
+</code></pre></div></td></tr></table></div>
+<h2 id="analisis-de-autenticacion">🔑 Análisis de Autenticación<a class="headerlink" href="#analisis-de-autenticacion" title="Permanent link">&para;</a></h2>
+<h3 id="single-sign-on-sso-analysis">Single Sign-On (SSO) Analysis<a class="headerlink" href="#single-sign-on-sso-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code>🔑<span class="w"> </span>Authentication<span class="w"> </span>Analysis:
+<span class="o">==========================</span>
+
+Current<span class="w"> </span>Configuration:
+-<span class="w"> </span>SSO<span class="w"> </span>Provider:<span class="w"> </span>OIDC<span class="w"> </span><span class="o">(</span>Google<span class="w"> </span>Workspace<span class="o">)</span><span class="w"> </span>✅
+-<span class="w"> </span>Local<span class="w"> </span>Users:<span class="w"> </span>Enabled<span class="w"> </span>⚠️
+-<span class="w"> </span>Anonymous<span class="w"> </span>Access:<span class="w"> </span>Disabled<span class="w"> </span>✅
+-<span class="w"> </span>Session<span class="w"> </span>Timeout:<span class="w"> </span>24h<span class="w"> </span>⚠️
+
+🔍<span class="w"> </span>Detailed<span class="w"> </span>Findings:
+
+✅<span class="w"> </span>STRENGTHS:
+-<span class="w"> </span>OIDC<span class="w"> </span>properly<span class="w"> </span>configured
+-<span class="w"> </span>MFA<span class="w"> </span>enforced<span class="w"> </span>at<span class="w"> </span>provider<span class="w"> </span>level
+-<span class="w"> </span>Strong<span class="w"> </span>password<span class="w"> </span>policy<span class="w"> </span><span class="o">(</span>provider<span class="o">)</span>
+-<span class="w"> </span>Secure<span class="w"> </span>token<span class="w"> </span>validation
+
+⚠️<span class="w">  </span>IMPROVEMENTS<span class="w"> </span>NEEDED:
+-<span class="w"> </span>Disable<span class="w"> </span><span class="nb">local</span><span class="w"> </span>admin<span class="w"> </span>user<span class="w"> </span><span class="k">in</span><span class="w"> </span>production
+-<span class="w"> </span>Reduce<span class="w"> </span>session<span class="w"> </span>timeout<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>hours
+-<span class="w"> </span>Enable<span class="w"> </span>session<span class="w"> </span>invalidation<span class="w"> </span>on<span class="w"> </span>role<span class="w"> </span>change
+-<span class="w"> </span>Configure<span class="w"> </span>automatic<span class="w"> </span><span class="nb">logout</span><span class="w"> </span>on<span class="w"> </span>inactivity
+
+🔧<span class="w"> </span>Dex<span class="w"> </span>Configuration<span class="w"> </span>Review:
+-<span class="w"> </span>Issuer<span class="w"> </span>URL:<span class="w"> </span>https://accounts.google.com<span class="w"> </span>✅
+-<span class="w"> </span>Client<span class="w"> </span>credentials:<span class="w"> </span>Stored<span class="w"> </span>as<span class="w"> </span>secrets<span class="w"> </span>✅
+-<span class="w"> </span>Redirect<span class="w"> </span>URIs:<span class="w"> </span>Properly<span class="w"> </span>configured<span class="w"> </span>✅
+-<span class="w"> </span>Scopes:<span class="w"> </span>email,<span class="w"> </span>profile,<span class="w"> </span>groups<span class="w"> </span>✅
+</code></pre></div></td></tr></table></div>
+<h3 id="user-management-security">User Management Security<a class="headerlink" href="#user-management-security" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>👥<span class="w"> </span>User<span class="w"> </span>Access<span class="w"> </span>Analysis:
+-<span class="w"> </span>Total<span class="w"> </span>Users:<span class="w"> </span><span class="m">23</span>
+-<span class="w"> </span>Admin<span class="w"> </span>Users:<span class="w"> </span><span class="m">3</span><span class="w"> </span>⚠️<span class="w"> </span><span class="o">(</span>Recommend:<span class="w"> </span>≤2<span class="o">)</span>
+-<span class="w"> </span>Service<span class="w"> </span>Accounts:<span class="w"> </span><span class="m">5</span><span class="w"> </span>✅
+-<span class="w"> </span>Inactive<span class="w"> </span>Users<span class="w"> </span><span class="o">(</span>&gt;90<span class="w"> </span>days<span class="o">)</span>:<span class="w"> </span><span class="m">2</span><span class="w"> </span>⚠️
+
+🔍<span class="w"> </span>Admin<span class="w"> </span>User<span class="w"> </span>Review:
+<span class="m">1</span>.<span class="w"> </span>admin@company.com<span class="w"> </span><span class="o">(</span>Last<span class="w"> </span>login:<span class="w"> </span><span class="m">2</span><span class="w"> </span>days<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>✅
+<span class="m">2</span>.<span class="w"> </span>devops-admin@company.com<span class="w"> </span><span class="o">(</span>Last<span class="w"> </span>login:<span class="w"> </span><span class="m">1</span><span class="w"> </span>week<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>✅<span class="w">  </span>
+<span class="m">3</span>.<span class="w"> </span>emergency-admin@company.com<span class="w"> </span><span class="o">(</span>Last<span class="w"> </span>login:<span class="w"> </span><span class="m">3</span><span class="w"> </span>months<span class="w"> </span>ago<span class="o">)</span><span class="w"> </span>⚠️
+
+💡<span class="w"> </span>Recommendations:
+-<span class="w"> </span>Remove<span class="w"> </span>or<span class="w"> </span>rotate<span class="w"> </span>emergency<span class="w"> </span>admin<span class="w"> </span>credentials
+-<span class="w"> </span>Implement<span class="w"> </span>JIT<span class="w"> </span><span class="o">(</span>Just-In-Time<span class="o">)</span><span class="w"> </span>admin<span class="w"> </span>access
+-<span class="w"> </span>Enable<span class="w"> </span>admin<span class="w"> </span>action<span class="w"> </span>notifications
+-<span class="w"> </span>Regular<span class="w"> </span>access<span class="w"> </span>review<span class="w"> </span><span class="o">(</span>quarterly<span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="analisis-de-autorizacion">🛡️ Análisis de Autorización<a class="headerlink" href="#analisis-de-autorizacion" title="Permanent link">&para;</a></h2>
+<h3 id="rbac-policy-analysis">RBAC Policy Analysis<a class="headerlink" href="#rbac-policy-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>🛡️<span class="w"> </span>Authorization<span class="w"> </span>Analysis:
+<span class="o">=========================</span>
+
+Current<span class="w"> </span>RBAC<span class="w"> </span>Configuration:
+-<span class="w"> </span>Policy<span class="w"> </span>Source:<span class="w"> </span>ConfigMap<span class="w"> </span>✅
+-<span class="w"> </span>Default<span class="w"> </span>Policy:<span class="w"> </span>role:readonly<span class="w"> </span>✅
+-<span class="w"> </span>Policy<span class="w"> </span>Size:<span class="w"> </span><span class="m">247</span><span class="w"> </span>lines<span class="w"> </span>⚠️
+-<span class="w"> </span>Custom<span class="w"> </span>Roles:<span class="w"> </span><span class="m">8</span><span class="w"> </span>⚠️
+
+🔍<span class="w"> </span>Policy<span class="w"> </span>Security<span class="w"> </span>Issues:
+
+🔴<span class="w"> </span>HIGH<span class="w"> </span>SEVERITY:
+-<span class="w"> </span>Default<span class="w"> </span>admin<span class="w"> </span>role<span class="w"> </span>too<span class="w"> </span>permissive
+-<span class="w"> </span>Wildcard<span class="w"> </span>permissions<span class="w"> </span>found:<span class="w"> </span>applications:*:*/*
+-<span class="w"> </span>Cross-namespace<span class="w"> </span>access<span class="w"> </span>not<span class="w"> </span>restricted
+
+🟡<span class="w"> </span>MEDIUM<span class="w"> </span>SEVERITY:<span class="w">  </span>
+-<span class="w"> </span>Service<span class="w"> </span>accounts<span class="w"> </span>with<span class="w"> </span>admin<span class="w"> </span>privileges:<span class="w"> </span><span class="m">2</span>
+-<span class="w"> </span>Groups<span class="w"> </span>with<span class="w"> </span>excessive<span class="w"> </span>permissions:<span class="w"> </span><span class="m">3</span>
+-<span class="w"> </span>Missing<span class="w"> </span>resource-level<span class="w"> </span>restrictions
+
+🟢<span class="w"> </span>LOW<span class="w"> </span>SEVERITY:
+-<span class="w"> </span>Policy<span class="w"> </span>syntax<span class="w"> </span>valid<span class="w"> </span>✅
+-<span class="w"> </span>No<span class="w"> </span>syntax<span class="w"> </span>errors<span class="w"> </span>✅
+-<span class="w"> </span>Proper<span class="w"> </span>escaping<span class="w"> </span>used<span class="w"> </span>✅
+
+🔧<span class="w"> </span>Recommended<span class="w"> </span>Policy<span class="w"> </span>Structure:
+</code></pre></div></td></tr></table></div>
+<h1 id="least-privilege-principle">Least privilege principle<a class="headerlink" href="#least-privilege-principle" title="Permanent link">&para;</a></h1>
+<p>policy.default = role:readonly</p>
+<h1 id="developer-role-restrictive">Developer role (restrictive)<a class="headerlink" href="#developer-role-restrictive" title="Permanent link">&para;</a></h1>
+<p>p, role:developer, applications, get, <em>/</em>, allow
+p, role:developer, applications, sync, myteam/*, allow</p>
+<h1 id="admin-role-time-limited">Admin role (time-limited)<a class="headerlink" href="#admin-role-time-limited" title="Permanent link">&para;</a></h1>
+<p>p, role:admin, <em>, *, */</em>, allow
+g, <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#109;&#105;&#110;&#64;&#99;&#111;&#109;&#112;&#97;&#110;&#121;&#46;&#99;&#111;&#109;">&#97;&#100;&#109;&#105;&#110;&#64;&#99;&#111;&#109;&#112;&#97;&#110;&#121;&#46;&#99;&#111;&#109;</a>, role:admin
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>### Permission Matrix Review
+```bash
+📋 Permission Matrix Analysis:
+┌──────────────────┬─────────┬──────────┬─────────┬──────────┐
+│ Role             │ Apps    │ Projects │ Repos   │ Clusters │
+├──────────────────┼─────────┼──────────┼─────────┼──────────┤
+│ readonly         │ get     │ get      │ get     │ get      │
+│ developer        │ get,sync│ get      │ get     │ get      │
+│ admin           │ *       │ *        │ *       │ *        │ ⚠️
+│ service-deploy   │ *       │ get      │ get     │ get      │ ⚠️
+└──────────────────┴─────────┴──────────┴─────────┴──────────┘
+
+⚠️  Over-privileged Roles:
+- admin: Full wildcard access (recommend scoping)
+- service-deploy: Application wildcard (recommend namespace limit)
+</code></pre></div></td></tr></table></div></p>
+<h2 id="seguridad-de-red">🌐 Seguridad de Red<a class="headerlink" href="#seguridad-de-red" title="Permanent link">&para;</a></h2>
+<h3 id="network-configuration-analysis">Network Configuration Analysis<a class="headerlink" href="#network-configuration-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>🌐<span class="w"> </span>Network<span class="w"> </span>Security<span class="w"> </span>Analysis:
+<span class="o">============================</span>
+
+Current<span class="w"> </span>Network<span class="w"> </span>Setup:
+-<span class="w"> </span>Service<span class="w"> </span>Type:<span class="w"> </span>ClusterIP<span class="w"> </span>✅
+-<span class="w"> </span>Ingress<span class="w"> </span>Controller:<span class="w"> </span>nginx<span class="w"> </span>✅
+-<span class="w"> </span>TLS<span class="w"> </span>Termination:<span class="w"> </span>Ingress<span class="w"> </span>level<span class="w"> </span>✅
+-<span class="w"> </span>Internal<span class="w"> </span>TLS:<span class="w"> </span>Disabled<span class="w"> </span>⚠️
+
+🔍<span class="w"> </span>Network<span class="w"> </span>Security<span class="w"> </span>Findings:
+
+✅<span class="w"> </span>SECURE<span class="w"> </span>CONFIGURATIONS:
+-<span class="w"> </span>External<span class="w"> </span>access<span class="w"> </span>through<span class="w"> </span>secure<span class="w"> </span>ingress
+-<span class="w"> </span>TLS<span class="w"> </span><span class="m">1</span>.2+<span class="w"> </span>enforced<span class="w"> </span>at<span class="w"> </span>ingress
+-<span class="w"> </span>No<span class="w"> </span>NodePort/LoadBalancer<span class="w"> </span>exposure
+-<span class="w"> </span>Network<span class="w"> </span>policies<span class="w"> </span>active
+
+⚠️<span class="w">  </span>SECURITY<span class="w"> </span>GAPS:
+-<span class="w"> </span>Internal<span class="w"> </span>component<span class="w"> </span>communication<span class="w"> </span>unencrypted
+-<span class="w"> </span>No<span class="w"> </span>mTLS<span class="w"> </span>between<span class="w"> </span>ArgoCD<span class="w"> </span>components
+-<span class="w"> </span>Redis<span class="w"> </span>traffic<span class="w"> </span>unencrypted
+-<span class="w"> </span>Missing<span class="w"> </span>network<span class="w"> </span>segmentation
+
+🔧<span class="w"> </span>Network<span class="w"> </span>Policies<span class="w"> </span>Review:
+-<span class="w"> </span>Default<span class="w"> </span>deny<span class="w"> </span>policy:<span class="w"> </span>✅<span class="w"> </span>Configured
+-<span class="w"> </span>ArgoCD<span class="w"> </span>namespace<span class="w"> </span>isolation:<span class="w"> </span>✅<span class="w"> </span>Active
+-<span class="w"> </span>Egress<span class="w"> </span>restrictions:<span class="w"> </span>⚠️<span class="w"> </span>Too<span class="w"> </span>permissive
+-<span class="w"> </span>DNS<span class="w"> </span>policies:<span class="w"> </span>✅<span class="w"> </span>Configured
+
+💡<span class="w"> </span>Network<span class="w"> </span>Hardening<span class="w"> </span>Recommendations:
+<span class="m">1</span>.<span class="w"> </span>Enable<span class="w"> </span>TLS<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>internal<span class="w"> </span>communications
+<span class="m">2</span>.<span class="w"> </span>Implement<span class="w"> </span>service<span class="w"> </span>mesh<span class="w"> </span><span class="o">(</span>Istio/Linkerd<span class="o">)</span>
+<span class="m">3</span>.<span class="w"> </span>Restrict<span class="w"> </span>egress<span class="w"> </span>to<span class="w"> </span>required<span class="w"> </span>destinations<span class="w"> </span>only
+<span class="m">4</span>.<span class="w"> </span>Enable<span class="w"> </span>network<span class="w"> </span>policy<span class="w"> </span>logging
+</code></pre></div></td></tr></table></div>
+<h3 id="tls-and-certificate-analysis">TLS and Certificate Analysis<a class="headerlink" href="#tls-and-certificate-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>🔒<span class="w"> </span>TLS<span class="w"> </span>Configuration<span class="w"> </span>Review:
+-<span class="w"> </span>Certificate<span class="w"> </span>Provider:<span class="w"> </span>Let<span class="s1">&#39;s Encrypt ✅</span>
+<span class="s1">- Certificate Expiry: 67 days ✅</span>
+<span class="s1">- TLS Version: 1.3 ✅</span>
+<span class="s1">- Cipher Suites: Strong ✅</span>
+<span class="s1">- HSTS Enabled: ✅ Yes</span>
+
+<span class="s1">Certificate Details:</span>
+<span class="s1">- Subject: CN=argocd.company.com</span>
+<span class="s1">- Issuer: Let&#39;</span>s<span class="w"> </span>Encrypt<span class="w"> </span>Authority<span class="w"> </span>X3
+-<span class="w"> </span>Valid<span class="w"> </span>From:<span class="w"> </span><span class="m">2025</span>-06-15
+-<span class="w"> </span>Valid<span class="w"> </span>Until:<span class="w"> </span><span class="m">2025</span>-09-13<span class="w"> </span>✅
+-<span class="w"> </span>SANs:<span class="w"> </span>argocd.company.com,<span class="w"> </span>api.argocd.company.com
+
+🔍<span class="w"> </span>Certificate<span class="w"> </span>Security:
+✅<span class="w"> </span>Strong<span class="w"> </span>key<span class="w"> </span>length<span class="w"> </span><span class="o">(</span><span class="m">2048</span><span class="w"> </span>RSA<span class="o">)</span>
+✅<span class="w"> </span>Valid<span class="w"> </span>certificate<span class="w"> </span>chain
+✅<span class="w"> </span>No<span class="w"> </span>weak<span class="w"> </span>cipher<span class="w"> </span>suites
+⚠️<span class="w"> </span>Missing<span class="w"> </span>certificate<span class="w"> </span>transparency<span class="w"> </span>logs
+</code></pre></div></td></tr></table></div>
+<h2 id="gestion-de-secretos">🔒 Gestión de Secretos<a class="headerlink" href="#gestion-de-secretos" title="Permanent link">&para;</a></h2>
+<h3 id="secret-security-analysis">Secret Security Analysis<a class="headerlink" href="#secret-security-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code>🔒<span class="w"> </span>Secret<span class="w"> </span>Management<span class="w"> </span>Analysis:
+<span class="o">=============================</span>
+
+Secret<span class="w"> </span>Inventory:
+-<span class="w"> </span>ArgoCD<span class="w"> </span>Secrets:<span class="w"> </span><span class="m">8</span><span class="w"> </span>total
+-<span class="w"> </span>Repository<span class="w"> </span>Credentials:<span class="w"> </span><span class="m">5</span><span class="w"> </span>⚠️
+-<span class="w"> </span>SSO<span class="w"> </span>Secrets:<span class="w"> </span><span class="m">2</span><span class="w"> </span>✅
+-<span class="w"> </span>TLS<span class="w"> </span>Certificates:<span class="w"> </span><span class="m">3</span><span class="w"> </span>✅
+
+🔍<span class="w"> </span>Secret<span class="w"> </span>Security<span class="w"> </span>Issues:
+
+🔴<span class="w"> </span>HIGH<span class="w"> </span>SEVERITY:
+-<span class="w"> </span><span class="m">3</span><span class="w"> </span>secrets<span class="w"> </span>not<span class="w"> </span>encrypted<span class="w"> </span>at<span class="w"> </span>rest
+-<span class="w"> </span>SSH<span class="w"> </span>keys<span class="w"> </span>without<span class="w"> </span>rotation<span class="w"> </span>schedule
+-<span class="w"> </span>Repository<span class="w"> </span>tokens<span class="w"> </span>with<span class="w"> </span>excessive<span class="w"> </span>permissions
+
+🟡<span class="w"> </span>MEDIUM<span class="w"> </span>SEVERITY:
+-<span class="w"> </span>Secrets<span class="w"> </span>visible<span class="w"> </span><span class="k">in</span><span class="w"> </span>ArgoCD<span class="w"> </span>UI<span class="w"> </span>⚠️
+-<span class="w"> </span>No<span class="w"> </span>secret<span class="w"> </span>scanning<span class="w"> </span><span class="k">in</span><span class="w"> </span>repositories
+-<span class="w"> </span>Missing<span class="w"> </span>secret<span class="w"> </span>lifecycle<span class="w"> </span>management
+
+📊<span class="w"> </span>Secret<span class="w"> </span>Analysis:
+┌─────────────────────────┬──────────┬───────────┬──────────┐
+│<span class="w"> </span>Secret<span class="w"> </span>Name<span class="w">             </span>│<span class="w"> </span>Type<span class="w">     </span>│<span class="w"> </span>Age<span class="w">       </span>│<span class="w"> </span>Risk<span class="w">     </span>│
+├─────────────────────────┼──────────┼───────────┼──────────┤
+│<span class="w"> </span>repo-github-creds<span class="w">       </span>│<span class="w"> </span>Git<span class="w">      </span>│<span class="w"> </span><span class="m">180</span><span class="w"> </span>days<span class="w">  </span>│<span class="w"> </span>🔴<span class="w"> </span>High<span class="w">  </span>│
+│<span class="w"> </span>sso-oidc-secret<span class="w">         </span>│<span class="w"> </span>OIDC<span class="w">     </span>│<span class="w"> </span><span class="m">45</span><span class="w"> </span>days<span class="w">   </span>│<span class="w"> </span>🟢<span class="w"> </span>Low<span class="w">   </span>│
+│<span class="w"> </span>argocd-secret<span class="w">           </span>│<span class="w"> </span>Config<span class="w">   </span>│<span class="w"> </span><span class="m">30</span><span class="w"> </span>days<span class="w">   </span>│<span class="w"> </span>🟡<span class="w"> </span>Med<span class="w">   </span>│
+│<span class="w"> </span>cluster-secret<span class="w">          </span>│<span class="w"> </span>K8s<span class="w">      </span>│<span class="w"> </span><span class="m">90</span><span class="w"> </span>days<span class="w">   </span>│<span class="w"> </span>🟡<span class="w"> </span>Med<span class="w">   </span>│
+└─────────────────────────┴──────────┴───────────┴──────────┘
+
+💡<span class="w"> </span>Secret<span class="w"> </span>Management<span class="w"> </span>Recommendations:
+<span class="m">1</span>.<span class="w"> </span>Enable<span class="w"> </span>encryption<span class="w"> </span>at<span class="w"> </span>rest<span class="w"> </span><span class="o">(</span>KMS/Vault<span class="o">)</span>
+<span class="m">2</span>.<span class="w"> </span>Implement<span class="w"> </span>secret<span class="w"> </span>rotation<span class="w"> </span><span class="o">(</span>every<span class="w"> </span><span class="m">90</span><span class="w"> </span>days<span class="o">)</span>
+<span class="m">3</span>.<span class="w"> </span>Use<span class="w"> </span>service<span class="w"> </span>accounts<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span>tokens<span class="w"> </span>where<span class="w"> </span>possible
+<span class="m">4</span>.<span class="w"> </span>Enable<span class="w"> </span>secret<span class="w"> </span>scanning<span class="w"> </span><span class="k">in</span><span class="w"> </span>CI/CD
+</code></pre></div></td></tr></table></div>
+<h3 id="vault-integration-analysis">Vault Integration Analysis<a class="headerlink" href="#vault-integration-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>🏦<span class="w"> </span>External<span class="w"> </span>Secret<span class="w"> </span>Management:
+-<span class="w"> </span>Vault<span class="w"> </span>Integration:<span class="w"> </span>⚠️<span class="w"> </span>Not<span class="w"> </span>configured
+-<span class="w"> </span>External<span class="w"> </span>Secrets<span class="w"> </span>Operator:<span class="w"> </span>⚠️<span class="w"> </span>Not<span class="w"> </span>installed
+-<span class="w"> </span>CSI<span class="w"> </span>Secret<span class="w"> </span>Driver:<span class="w"> </span>⚠️<span class="w"> </span>Not<span class="w"> </span>configured
+
+Recommendations:
+-<span class="w"> </span>Implement<span class="w"> </span>HashiCorp<span class="w"> </span>Vault<span class="w"> </span>integration
+-<span class="w"> </span>Use<span class="w"> </span>external-secrets-operator<span class="w"> </span><span class="k">for</span><span class="w"> </span>dynamic<span class="w"> </span>secrets
+-<span class="w"> </span>Enable<span class="w"> </span>secret<span class="w"> </span>rotation<span class="w"> </span>automation
+-<span class="w"> </span>Implement<span class="w"> </span>secret<span class="w"> </span>scanning
+</code></pre></div></td></tr></table></div>
+<h2 id="compliance-y-auditoria">📋 Compliance y Auditoría<a class="headerlink" href="#compliance-y-auditoria" title="Permanent link">&para;</a></h2>
+<h3 id="soc2-compliance-check">SOC2 Compliance Check<a class="headerlink" href="#soc2-compliance-check" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>📋<span class="w"> </span>SOC2<span class="w"> </span>Compliance<span class="w"> </span>Analysis:
+<span class="o">===========================</span>
+
+CC6.1<span class="w"> </span>-<span class="w"> </span>Logical<span class="w"> </span>Access<span class="w"> </span>Security:
+✅<span class="w"> </span>Multi-factor<span class="w"> </span>authentication<span class="w"> </span>enforced
+✅<span class="w"> </span>Access<span class="w"> </span>reviews<span class="w"> </span>documented
+⚠️<span class="w"> </span>Privileged<span class="w"> </span>access<span class="w"> </span>not<span class="w"> </span>time-limited
+
+CC6.2<span class="w"> </span>-<span class="w"> </span>Authentication:
+✅<span class="w"> </span>Strong<span class="w"> </span>authentication<span class="w"> </span>mechanisms
+✅<span class="w"> </span>Password<span class="w"> </span>complexity<span class="w"> </span>enforced<span class="w"> </span><span class="o">(</span>via<span class="w"> </span>SSO<span class="o">)</span>
+⚠️<span class="w"> </span>Service<span class="w"> </span>account<span class="w"> </span>authentication<span class="w"> </span>needs<span class="w"> </span>review
+
+CC6.3<span class="w"> </span>-<span class="w"> </span>Authorization:
+⚠️<span class="w"> </span>Excessive<span class="w"> </span>permissions<span class="w"> </span>identified
+✅<span class="w"> </span>Role-based<span class="w"> </span>access<span class="w"> </span>controls<span class="w"> </span>implemented
+⚠️<span class="w"> </span>Regular<span class="w"> </span>access<span class="w"> </span>reviews<span class="w"> </span>needed
+
+CC6.7<span class="w"> </span>-<span class="w"> </span>Data<span class="w"> </span>Transmission:
+✅<span class="w"> </span>External<span class="w"> </span>communications<span class="w"> </span>encrypted
+⚠️<span class="w"> </span>Internal<span class="w"> </span>communications<span class="w"> </span>partially<span class="w"> </span>encrypted
+✅<span class="w"> </span>Certificate<span class="w"> </span>management<span class="w"> </span>processes
+
+Compliance<span class="w"> </span>Score:<span class="w"> </span><span class="m">72</span>/100<span class="w"> </span><span class="o">(</span>Needs<span class="w"> </span>Improvement<span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="audit-trail-analysis">Audit Trail Analysis<a class="headerlink" href="#audit-trail-analysis" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>🔍<span class="w"> </span>Audit<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Logging<span class="w"> </span>Analysis:
+<span class="o">===========================</span>
+
+Current<span class="w"> </span>Logging<span class="w"> </span>Configuration:
+-<span class="w"> </span>Application<span class="w"> </span>Events:<span class="w"> </span>✅<span class="w"> </span>Enabled
+-<span class="w"> </span>Authentication<span class="w"> </span>Events:<span class="w"> </span>✅<span class="w"> </span>Enabled<span class="w">  </span>
+-<span class="w"> </span>Authorization<span class="w"> </span>Events:<span class="w"> </span>✅<span class="w"> </span>Enabled
+-<span class="w"> </span>Configuration<span class="w"> </span>Changes:<span class="w"> </span>✅<span class="w"> </span>Enabled
+-<span class="w"> </span>API<span class="w"> </span>Access:<span class="w"> </span>⚠️<span class="w"> </span>Basic<span class="w"> </span>logging<span class="w"> </span>only
+
+Log<span class="w"> </span>Retention:
+-<span class="w"> </span>Current<span class="w"> </span>Retention:<span class="w"> </span><span class="m">30</span><span class="w"> </span>days<span class="w"> </span>⚠️
+-<span class="w"> </span>Recommended:<span class="w"> </span><span class="m">365</span>+<span class="w"> </span>days<span class="w"> </span><span class="k">for</span><span class="w"> </span>compliance
+-<span class="w"> </span>Log<span class="w"> </span>Integrity:<span class="w"> </span>⚠️<span class="w"> </span>No<span class="w"> </span>tamper<span class="w"> </span>protection
+-<span class="w"> </span>External<span class="w"> </span>Shipping:<span class="w"> </span>✅<span class="w"> </span>To<span class="w"> </span>SIEM
+
+🔍<span class="w"> </span>Audit<span class="w"> </span>Trail<span class="w"> </span>Quality:
+-<span class="w"> </span>Event<span class="w"> </span>Coverage:<span class="w"> </span><span class="m">85</span>%<span class="w"> </span>✅
+-<span class="w"> </span>Log<span class="w"> </span>Format:<span class="w"> </span>JSON<span class="w"> </span>structured<span class="w"> </span>✅
+-<span class="w"> </span>Searchability:<span class="w"> </span>✅<span class="w"> </span>Good
+-<span class="w"> </span>Alerting:<span class="w"> </span>⚠️<span class="w"> </span>Basic<span class="w"> </span>rules<span class="w"> </span>only
+
+Missing<span class="w"> </span>Audit<span class="w"> </span>Events:
+-<span class="w"> </span>Secret<span class="w"> </span>access<span class="w"> </span>events
+-<span class="w"> </span>Certificate<span class="w"> </span>usage<span class="w"> </span>events<span class="w">  </span>
+-<span class="w"> </span>Failed<span class="w"> </span>authentication<span class="w"> </span>details
+-<span class="w"> </span>Administrative<span class="w"> </span>action<span class="w"> </span>details
+</code></pre></div></td></tr></table></div>
+<h2 id="security-alerting">🚨 Security Alerting<a class="headerlink" href="#security-alerting" title="Permanent link">&para;</a></h2>
+<h3 id="active-security-alerts">Active Security Alerts<a class="headerlink" href="#active-security-alerts" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>🚨<span class="w"> </span>Active<span class="w"> </span>Security<span class="w"> </span>Alerts:
+<span class="o">=========================</span>
+
+🔴<span class="w"> </span>CRITICAL<span class="w"> </span><span class="o">(</span>Action<span class="w"> </span>Required<span class="o">)</span>:
+-<span class="w"> </span>Repository<span class="w"> </span>token<span class="w"> </span>expires<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>days
+-<span class="w"> </span>Admin<span class="w"> </span>user<span class="w"> </span>logged<span class="w"> </span><span class="k">in</span><span class="w"> </span>from<span class="w"> </span>new<span class="w"> </span>location
+-<span class="w"> </span>Unusual<span class="w"> </span>API<span class="w"> </span>access<span class="w"> </span>pattern<span class="w"> </span>detected
+
+🟡<span class="w"> </span>WARNING<span class="w"> </span><span class="o">(</span>Review<span class="w"> </span>Needed<span class="o">)</span>:
+-<span class="w"> </span>High<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>failed<span class="w"> </span>authentication<span class="w"> </span>attempts
+-<span class="w"> </span>Service<span class="w"> </span>account<span class="w"> </span>created<span class="w"> </span>without<span class="w"> </span>approval
+-<span class="w"> </span>TLS<span class="w"> </span>certificate<span class="w"> </span>expires<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">30</span><span class="w"> </span>days
+
+🟢<span class="w"> </span>INFO<span class="w"> </span><span class="o">(</span>Monitoring<span class="o">)</span>:
+-<span class="w"> </span>New<span class="w"> </span>user<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>developers<span class="w"> </span>group
+-<span class="w"> </span>Repository<span class="w"> </span>access<span class="w"> </span>pattern<span class="w"> </span>changed
+-<span class="w"> </span>Configuration<span class="w"> </span>updated<span class="w"> </span>via<span class="w"> </span>API
+</code></pre></div></td></tr></table></div>
+<h3 id="security-monitoring-configuration">Security Monitoring Configuration<a class="headerlink" href="#security-monitoring-configuration" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Security monitoring rules</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>security_alerts.yaml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">alerts:</span>
+<span class="s">  - name: failed_auth_threshold</span>
+<span class="s">    condition: failed_logins &gt; 10 in 5min</span>
+<span class="s">    severity: warning</span>
+<span class="s">    action: block_ip_temp</span>
+
+<span class="s">  - name: admin_access_anomaly  </span>
+<span class="s">    condition: admin_login outside_business_hours</span>
+<span class="s">    severity: high</span>
+<span class="s">    action: notify_security_team</span>
+
+<span class="s">  - name: secret_access_pattern</span>
+<span class="s">    condition: secret_access rate &gt; baseline + 3σ</span>
+<span class="s">    severity: medium</span>
+<span class="s">    action: audit_log_review</span>
+
+<span class="s">  - name: certificate_expiry</span>
+<span class="s">    condition: cert_expires_in &lt; 30 days</span>
+<span class="s">    severity: high</span>
+<span class="s">    action: auto_renewal_trigger</span>
+<span class="s">EOF</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="security-hardening">🔧 Security Hardening<a class="headerlink" href="#security-hardening" title="Permanent link">&para;</a></h2>
+<h3 id="security-hardening-checklist">Security Hardening Checklist<a class="headerlink" href="#security-hardening-checklist" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>🔧<span class="w"> </span>Security<span class="w"> </span>Hardening<span class="w"> </span>Recommendations:
+<span class="o">=====================================</span>
+
+🔴<span class="w"> </span>CRITICAL<span class="w"> </span><span class="o">(</span>Immediate<span class="w"> </span>Action<span class="o">)</span>:
+□<span class="w"> </span>Enable<span class="w"> </span>encryption<span class="w"> </span>at<span class="w"> </span>rest<span class="w"> </span><span class="k">for</span><span class="w"> </span>etcd
+□<span class="w"> </span>Rotate<span class="w"> </span>repository<span class="w"> </span>access<span class="w"> </span>tokens<span class="w">  </span>
+□<span class="w"> </span>Disable<span class="w"> </span><span class="nb">local</span><span class="w"> </span>admin<span class="w"> </span>user
+□<span class="w"> </span>Configure<span class="w"> </span>automatic<span class="w"> </span>secret<span class="w"> </span>rotation
+
+🟡<span class="w"> </span>HIGH<span class="w"> </span>PRIORITY<span class="w"> </span><span class="o">(</span>This<span class="w"> </span>Sprint<span class="o">)</span>:
+□<span class="w"> </span>Implement<span class="w"> </span>least-privilege<span class="w"> </span>RBAC
+□<span class="w"> </span>Enable<span class="w"> </span>internal<span class="w"> </span>TLS<span class="w"> </span>communications
+□<span class="w"> </span>Configure<span class="w"> </span>Vault<span class="w"> </span>integration
+□<span class="w"> </span>Set<span class="w"> </span>up<span class="w"> </span>security<span class="w"> </span>monitoring
+
+🟢<span class="w"> </span>MEDIUM<span class="w"> </span>PRIORITY<span class="w"> </span><span class="o">(</span>Next<span class="w"> </span>Sprint<span class="o">)</span>:
+□<span class="w"> </span>Implement<span class="w"> </span>Pod<span class="w"> </span>Security<span class="w"> </span>Standards
+□<span class="w"> </span>Configure<span class="w"> </span>network<span class="w"> </span>policies<span class="w">  </span>
+□<span class="w"> </span>Enable<span class="w"> </span>audit<span class="w"> </span>log<span class="w"> </span>shipping
+□<span class="w"> </span>Set<span class="w"> </span>up<span class="w"> </span>compliance<span class="w"> </span>scanning
+
+🔵<span class="w"> </span>LOW<span class="w"> </span>PRIORITY<span class="w"> </span><span class="o">(</span>Backlog<span class="o">)</span>:
+□<span class="w"> </span>Implement<span class="w"> </span>service<span class="w"> </span>mesh
+□<span class="w"> </span>Configure<span class="w"> </span>certificate<span class="w"> </span>transparency
+□<span class="w"> </span>Enable<span class="w"> </span>advanced<span class="w"> </span>threat<span class="w"> </span>detection
+□<span class="w"> </span>Set<span class="w"> </span>up<span class="w"> </span>security<span class="w"> </span>metrics<span class="w"> </span>dashboard
+</code></pre></div></td></tr></table></div>
+<h3 id="automated-security-fixes">Automated Security Fixes<a class="headerlink" href="#automated-security-fixes" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Automated security remediation</span>
+./security_analyzer.sh<span class="w"> </span>--auto-fix<span class="w"> </span>--category<span class="w"> </span>secrets
+
+<span class="c1"># Automatic actions taken:</span>
+✅<span class="w"> </span>Rotated<span class="w"> </span>repository<span class="w"> </span>tokens<span class="w"> </span>older<span class="w"> </span>than<span class="w"> </span><span class="m">90</span><span class="w"> </span>days
+✅<span class="w"> </span>Updated<span class="w"> </span>RBAC<span class="w"> </span>policies<span class="w"> </span>to<span class="w"> </span>least<span class="w"> </span>privilege
+✅<span class="w"> </span>Enabled<span class="w"> </span>additional<span class="w"> </span>audit<span class="w"> </span>logging
+✅<span class="w"> </span>Configured<span class="w"> </span>secret<span class="w"> </span>encryption<span class="w"> </span>at<span class="w"> </span>rest
+⚠️<span class="w"> </span>Manual<span class="w"> </span>review<span class="w"> </span>required<span class="w"> </span><span class="k">for</span><span class="w"> </span>admin<span class="w"> </span>users
+</code></pre></div></td></tr></table></div>
+<h2 id="security-metrics-dashboard">📊 Security Metrics Dashboard<a class="headerlink" href="#security-metrics-dashboard" title="Permanent link">&para;</a></h2>
+<h3 id="key-security-metrics">Key Security Metrics<a class="headerlink" href="#key-security-metrics" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>📊<span class="w"> </span>Security<span class="w"> </span>Metrics<span class="w"> </span><span class="o">(</span>Last<span class="w"> </span><span class="m">30</span><span class="w"> </span>days<span class="o">)</span>:
+<span class="o">===================================</span>
+
+Authentication:
+-<span class="w"> </span>Login<span class="w"> </span>Success<span class="w"> </span>Rate:<span class="w"> </span><span class="m">99</span>.2%<span class="w"> </span>✅
+-<span class="w"> </span>Failed<span class="w"> </span>Login<span class="w"> </span>Attempts:<span class="w"> </span><span class="m">47</span><span class="w"> </span>total
+-<span class="w"> </span>MFA<span class="w"> </span>Bypass<span class="w"> </span>Attempts:<span class="w"> </span><span class="m">0</span><span class="w"> </span>✅
+-<span class="w"> </span>Session<span class="w"> </span>Hijacking<span class="w"> </span>Attempts:<span class="w"> </span><span class="m">0</span><span class="w"> </span>✅
+
+Authorization:
+-<span class="w"> </span>Privilege<span class="w"> </span>Escalation<span class="w"> </span>Attempts:<span class="w"> </span><span class="m">0</span><span class="w"> </span>✅
+-<span class="w"> </span>Access<span class="w"> </span>Denied<span class="w"> </span>Events:<span class="w"> </span><span class="m">234</span><span class="w"> </span>
+-<span class="w"> </span>Policy<span class="w"> </span>Violations:<span class="w"> </span><span class="m">12</span><span class="w"> </span>⚠️
+-<span class="w"> </span>Cross-namespace<span class="w"> </span>Access:<span class="w"> </span><span class="m">5</span><span class="w"> </span>⚠️
+
+Network<span class="w"> </span>Security:
+-<span class="w"> </span>TLS<span class="w"> </span>Errors:<span class="w"> </span><span class="m">3</span><span class="w"> </span>🟢
+-<span class="w"> </span>Certificate<span class="w"> </span>Warnings:<span class="w"> </span><span class="m">1</span><span class="w"> </span>🟢
+-<span class="w"> </span>Network<span class="w"> </span>Policy<span class="w"> </span>Violations:<span class="w"> </span><span class="m">0</span><span class="w"> </span>✅
+-<span class="w"> </span>Suspicious<span class="w"> </span>Traffic:<span class="w"> </span><span class="m">2</span><span class="w"> </span>events<span class="w"> </span>🟡
+
+Secret<span class="w"> </span>Management:
+-<span class="w"> </span>Secret<span class="w"> </span>Rotations:<span class="w"> </span><span class="m">8</span><span class="w"> </span>completed<span class="w"> </span>✅
+-<span class="w"> </span>Exposed<span class="w"> </span>Secrets:<span class="w"> </span><span class="m">0</span><span class="w"> </span>detected<span class="w"> </span>✅
+-<span class="w"> </span>Weak<span class="w"> </span>Secrets:<span class="w"> </span><span class="m">2</span><span class="w"> </span>found<span class="w"> </span>⚠️
+-<span class="w"> </span>Secret<span class="w"> </span>Access<span class="w"> </span>Anomalies:<span class="w"> </span><span class="m">1</span><span class="w"> </span>🟡
+</code></pre></div></td></tr></table></div>
+<h2 id="security-incident-response">📞 Security Incident Response<a class="headerlink" href="#security-incident-response" title="Permanent link">&para;</a></h2>
+<h3 id="incident-response-playbook">Incident Response Playbook<a class="headerlink" href="#incident-response-playbook" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>🚨<span class="w"> </span>Security<span class="w"> </span>Incident<span class="w"> </span>Response:
+<span class="o">=============================</span>
+
+SEVERITY<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>Critical<span class="o">)</span>:
+<span class="m">1</span>.<span class="w"> </span>Immediate<span class="w"> </span>containment
+<span class="m">2</span>.<span class="w"> </span>Disable<span class="w"> </span>affected<span class="w"> </span>accounts
+<span class="m">3</span>.<span class="w"> </span>Isolate<span class="w"> </span>compromised<span class="w"> </span>components
+<span class="m">4</span>.<span class="w"> </span>Notify<span class="w"> </span>security<span class="w"> </span>team
+<span class="m">5</span>.<span class="w"> </span>Begin<span class="w"> </span>forensic<span class="w"> </span>analysis
+
+SEVERITY<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>High<span class="o">)</span>:
+<span class="m">1</span>.<span class="w"> </span>Assess<span class="w"> </span>impact<span class="w"> </span>scope
+<span class="m">2</span>.<span class="w"> </span>Implement<span class="w"> </span>temporary<span class="w"> </span>controls
+<span class="m">3</span>.<span class="w"> </span>Monitor<span class="w"> </span><span class="k">for</span><span class="w"> </span>escalation
+<span class="m">4</span>.<span class="w"> </span>Schedule<span class="w"> </span>emergency<span class="w"> </span>patching
+<span class="m">5</span>.<span class="w"> </span>Document<span class="w"> </span>lessons<span class="w"> </span>learned
+
+Response<span class="w"> </span>Contacts:
+-<span class="w"> </span>Security<span class="w"> </span>Team:<span class="w"> </span>security@company.com
+-<span class="w"> </span>DevOps<span class="w"> </span>On-Call:<span class="w"> </span>+1-555-DEVOPS
+-<span class="w"> </span>Incident<span class="w"> </span>Commander:<span class="w"> </span>ic@company.com
+</code></pre></div></td></tr></table></div>
+<h3 id="forensic-analysis-tools">Forensic Analysis Tools<a class="headerlink" href="#forensic-analysis-tools" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Security forensics</span>
+./security_analyzer.sh<span class="w"> </span>--forensic-mode<span class="w"> </span>--incident-id<span class="w"> </span>INC-2025-001
+
+<span class="c1"># Generate evidence package</span>
+./security_analyzer.sh<span class="w"> </span>--evidence-collection<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--timeframe<span class="w"> </span><span class="s2">&quot;2025-08-22 10:00 to 2025-08-22 14:00&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>/tmp/incident_evidence.tar.gz
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../performance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Performance">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Performance
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../api/" class="md-footer__link md-footer__link--next" aria-label="Next: API Reference">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                API Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.action.edit"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>

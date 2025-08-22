@@ -1,0 +1,2123 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive ArgoCD management and diagnostic tools">
+      
+      
+      
+      
+        <link rel="prev" href="../security/">
+      
+      
+        <link rel="next" href="../troubleshooting/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>API Reference - ArgoCD Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ArgoCD Solutions" class="md-header__button md-logo" aria-label="ArgoCD Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ArgoCD Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Portfolio-jaime/Argocd-solutions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ArgoCD Solutions" class="md-nav__button md-logo" aria-label="ArgoCD Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ArgoCD Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Portfolio-jaime/Argocd-solutions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maintenance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gui-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 GUI APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 GUI APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interfaz-grafica-moderna" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interfaz Gráfica Moderna
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaz Gráfica Moderna">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-la-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de la GUI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-tool-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ CLI Tool APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ CLI Tool APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-ha-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis HA Fix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis HA Fix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de Uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zombie-cleaner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zombie Cleaner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zombie Cleaner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de Uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crds-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRDs Checker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-crd-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safe CRD Upgrade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-monitor-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Performance Monitor API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Performance Monitor API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-analyzer-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Security Analyzer API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security Analyzer API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-output-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Output Schema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orphan-analyzer-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🕵️ Orphan Analyzer API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🕵️ Orphan Analyzer API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspector-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Inspector API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Inspector API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-update-validation-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Pre-update Validation API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Pre-update Validation API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 Integration APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Integration APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webhook-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prometheus Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Monitoring Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Monitoring Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grafana-dashboard-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafana Dashboard API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siem-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIEM Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      📞 API Support
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 API Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gui-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 GUI APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 GUI APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interfaz-grafica-moderna" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interfaz Gráfica Moderna
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaz Gráfica Moderna">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-la-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de la GUI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-tool-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ CLI Tool APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ CLI Tool APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-ha-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis HA Fix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis HA Fix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de Uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zombie-cleaner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zombie Cleaner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zombie Cleaner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de Uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crds-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRDs Checker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-crd-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safe CRD Upgrade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-monitor-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Performance Monitor API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Performance Monitor API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-analyzer-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Security Analyzer API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security Analyzer API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-output-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Output Schema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orphan-analyzer-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🕵️ Orphan Analyzer API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🕵️ Orphan Analyzer API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspector-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Inspector API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Inspector API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-update-validation-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Pre-update Validation API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Pre-update Validation API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-interface_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 Integration APIs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Integration APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webhook-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prometheus Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Monitoring Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Monitoring Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grafana-dashboard-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafana Dashboard API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siem-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SIEM Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      📞 API Support
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 API Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Portfolio-jaime/Argocd-solutions/edit/main/docs/api.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>Referencia completa de APIs y interfaces de las herramientas ArgoCD Solutions.</p>
+<h2 id="gui-apis">🚀 GUI APIs<a class="headerlink" href="#gui-apis" title="Permanent link">&para;</a></h2>
+<h3 id="interfaz-grafica-moderna">Interfaz Gráfica Moderna<a class="headerlink" href="#interfaz-grafica-moderna" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Ejecutar GUI moderna</span>
+<span class="n">python3</span> <span class="n">argocd_manager_modern_gui</span><span class="o">.</span><span class="n">py</span>
+
+<span class="c1"># Parámetros disponibles</span>
+<span class="n">python3</span> <span class="n">argocd_manager_modern_gui</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="metodos-de-la-gui">Métodos de la GUI<a class="headerlink" href="#metodos-de-la-gui" title="Permanent link">&para;</a></h4>
+<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ArgoCDManagerModern</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Inicializa la interfaz moderna&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_tool_card</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tool_name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Crea tarjeta de herramienta</span>
+<span class="sd">        Args:</span>
+<span class="sd">            tool_name (str): Nombre de la herramienta</span>
+<span class="sd">            description (str): Descripción detallada</span>
+<span class="sd">            category (str): Categoría (maintenance, validation, etc.)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_tool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tool_script</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ejecuta herramienta en background</span>
+<span class="sd">        Args:</span>
+<span class="sd">            tool_script (str): Ruta al script</span>
+<span class="sd">            background (bool): Ejecutar en background</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            subprocess.Popen: Proceso en ejecución</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_dashboard_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Actualiza métricas en tiempo real del dashboard&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">export_logs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;txt&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Exporta logs de ejecución</span>
+<span class="sd">        Args:</span>
+<span class="sd">            format (str): Formato de exportación (txt, json, csv)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="cli-tool-apis">🛠️ CLI Tool APIs<a class="headerlink" href="#cli-tool-apis" title="Permanent link">&para;</a></h2>
+<h3 id="redis-ha-fix">Redis HA Fix<a class="headerlink" href="#redis-ha-fix" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del script Redis HA Fix</span>
+./Check-Redis-ha/redis-ha-fix.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--diagnose<span class="w">        </span>Solo<span class="w"> </span>ejecutar<span class="w"> </span>diagnóstico
+<span class="w">  </span>--fix<span class="w">            </span>Aplicar<span class="w"> </span>correcciones<span class="w"> </span>automáticas
+<span class="w">  </span>--namespace<span class="w">      </span>Namespace<span class="w"> </span>de<span class="w"> </span>ArgoCD<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span>argocd<span class="o">)</span>
+<span class="w">  </span>--verbose<span class="w">        </span>Salida<span class="w"> </span>detallada
+<span class="w">  </span>--dry-run<span class="w">        </span>Simular<span class="w"> </span>sin<span class="w"> </span>aplicar<span class="w"> </span>cambios
+<span class="w">  </span>--timeout<span class="w">        </span>Timeout<span class="w"> </span>en<span class="w"> </span>segundos<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span><span class="m">300</span><span class="o">)</span>
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Éxito
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Error<span class="w"> </span>general
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>No<span class="w"> </span>se<span class="w"> </span>pudo<span class="w"> </span>conectar<span class="w"> </span>a<span class="w"> </span>Kubernetes
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Namespace<span class="w"> </span>no<span class="w"> </span>encontrado
+<span class="w">  </span><span class="m">4</span><span class="w">    </span>Redis<span class="w"> </span>HA<span class="w"> </span>no<span class="w"> </span>encontrado
+</code></pre></div></td></tr></table></div>
+<h4 id="ejemplo-de-uso">Ejemplo de Uso<a class="headerlink" href="#ejemplo-de-uso" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Diagnóstico completo</span>
+./redis-ha-fix.sh<span class="w"> </span>--diagnose<span class="w"> </span>--verbose
+
+<span class="c1"># Aplicar correcciones</span>
+./redis-ha-fix.sh<span class="w"> </span>--fix<span class="w"> </span>--namespace<span class="w"> </span>production-argocd
+
+<span class="c1"># Modo dry-run</span>
+./redis-ha-fix.sh<span class="w"> </span>--diagnose<span class="w"> </span>--dry-run
+</code></pre></div></td></tr></table></div>
+<h3 id="zombie-cleaner">Zombie Cleaner<a class="headerlink" href="#zombie-cleaner" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del Zombie Cleaner</span>
+./Check-argocd/argocd-zombie-cleaner.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--list<span class="w">           </span>Listar<span class="w"> </span>recursos<span class="w"> </span>zombie<span class="w"> </span>sin<span class="w"> </span>eliminar
+<span class="w">  </span>--clean<span class="w">          </span>Limpiar<span class="w"> </span>recursos<span class="w"> </span>zombie
+<span class="w">  </span>--namespace<span class="w">      </span>Namespace<span class="w"> </span>específico<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span>all<span class="o">)</span>
+<span class="w">  </span>--dry-run<span class="w">        </span>Mostrar<span class="w"> </span>qué<span class="w"> </span>se<span class="w"> </span>eliminaría
+<span class="w">  </span>--force<span class="w">          </span>Eliminar<span class="w"> </span>sin<span class="w"> </span>confirmación
+<span class="w">  </span>--backup<span class="w">         </span>Crear<span class="w"> </span>backup<span class="w"> </span>antes<span class="w"> </span>de<span class="w"> </span>eliminar
+<span class="w">  </span>--auto-confirm<span class="w">   </span>Confirmar<span class="w"> </span>automáticamente<span class="w"> </span>eliminaciones
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Éxito<span class="w"> </span>-<span class="w"> </span>No<span class="w"> </span>hay<span class="w"> </span>recursos<span class="w"> </span>zombie<span class="w"> </span>o<span class="w"> </span>limpieza<span class="w"> </span>exitosa
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Error<span class="w"> </span>de<span class="w"> </span>conexión<span class="w"> </span>o<span class="w"> </span>permisos
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Recursos<span class="w"> </span>zombie<span class="w"> </span>encontrados<span class="w"> </span><span class="o">(</span>con<span class="w"> </span>--list<span class="o">)</span>
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Error<span class="w"> </span>durante<span class="w"> </span>limpieza
+</code></pre></div></td></tr></table></div>
+<h4 id="ejemplo-de-uso_1">Ejemplo de Uso<a class="headerlink" href="#ejemplo-de-uso_1" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Listar recursos zombie</span>
+./argocd-zombie-cleaner.sh<span class="w"> </span>--list
+
+<span class="c1"># Limpiar con backup</span>
+./argocd-zombie-cleaner.sh<span class="w"> </span>--clean<span class="w"> </span>--backup<span class="w"> </span>--namespace<span class="w"> </span>argocd
+
+<span class="c1"># Limpieza forzada (cuidado!)</span>
+./argocd-zombie-cleaner.sh<span class="w"> </span>--clean<span class="w"> </span>--force<span class="w"> </span>--auto-confirm
+</code></pre></div></td></tr></table></div>
+<h3 id="crds-checker">CRDs Checker<a class="headerlink" href="#crds-checker" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del CRDs Checker</span>
+./Check_CRDs-K8s/check_crds-argocd.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--target-version<span class="w"> </span>VERSION<span class="w">    </span>Versión<span class="w"> </span>objetivo<span class="w"> </span>de<span class="w"> </span>ArgoCD
+<span class="w">  </span>--current-only<span class="w">             </span>Solo<span class="w"> </span>mostrar<span class="w"> </span>versión<span class="w"> </span>actual
+<span class="w">  </span>--compare<span class="w"> </span>VERSION<span class="w">          </span>Comparar<span class="w"> </span>con<span class="w"> </span>versión<span class="w"> </span>específica
+<span class="w">  </span>--include-rollouts<span class="w">         </span>Incluir<span class="w"> </span>Argo<span class="w"> </span>Rollouts<span class="w"> </span>en<span class="w"> </span>análisis
+<span class="w">  </span>--export-report<span class="w"> </span>FORMAT<span class="w">     </span>Exportar<span class="w"> </span>reporte<span class="w"> </span><span class="o">(</span>json,<span class="w"> </span>yaml,<span class="w"> </span>txt<span class="o">)</span>
+<span class="w">  </span>--verbose<span class="w">                  </span>Salida<span class="w"> </span>detallada
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Compatible<span class="w"> </span>-<span class="w"> </span>Seguro<span class="w"> </span>actualizar
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Error<span class="w"> </span>de<span class="w"> </span>análisis
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Incompatibilidad<span class="w"> </span>detectada
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Actualización<span class="w"> </span>no<span class="w"> </span>recomendada
+</code></pre></div></td></tr></table></div>
+<h3 id="safe-crd-upgrade">Safe CRD Upgrade<a class="headerlink" href="#safe-crd-upgrade" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del Safe CRD Upgrade</span>
+./Check_crds_compatibilitie/safe_crd_upgrade_tui.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--version<span class="w"> </span>VERSION<span class="w">      </span>Versión<span class="w"> </span>específica<span class="w"> </span><span class="o">(</span>salta<span class="w"> </span>menú<span class="w"> </span>TUI<span class="o">)</span>
+<span class="w">  </span>--list-versions<span class="w">       </span>Lista<span class="w"> </span>versiones<span class="w"> </span>disponibles
+<span class="w">  </span>--backup-only<span class="w">         </span>Solo<span class="w"> </span>crear<span class="w"> </span>backup
+<span class="w">  </span>--restore<span class="w"> </span>BACKUP<span class="w">      </span>Restaurar<span class="w"> </span>desde<span class="w"> </span>backup<span class="w"> </span>específico
+<span class="w">  </span>--no-interaction<span class="w">      </span>Modo<span class="w"> </span>no<span class="w"> </span>interactivo
+<span class="w">  </span>--force<span class="w">               </span>Forzar<span class="w"> </span>actualización<span class="w"> </span>sin<span class="w"> </span>validaciones
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Actualización<span class="w"> </span>exitosa
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Error<span class="w"> </span>durante<span class="w"> </span>actualización
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Validación<span class="w"> </span>fallida
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Backup/Restore<span class="w"> </span>falló
+<span class="w">  </span><span class="m">4</span><span class="w">    </span>Usuario<span class="w"> </span>canceló<span class="w"> </span>operación
+</code></pre></div></td></tr></table></div>
+<h2 id="performance-monitor-api">📊 Performance Monitor API<a class="headerlink" href="#performance-monitor-api" title="Permanent link">&para;</a></h2>
+<h3 id="cli-interface">CLI Interface<a class="headerlink" href="#cli-interface" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del Performance Monitor</span>
+./Performance_monitor/performance_monitor.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--duration<span class="w"> </span>MINUTES<span class="w">         </span>Duración<span class="w"> </span>del<span class="w"> </span>monitoreo<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span><span class="m">5</span><span class="o">)</span>
+<span class="w">  </span>--interval<span class="w"> </span>SECONDS<span class="w">         </span>Intervalo<span class="w"> </span>entre<span class="w"> </span>muestras<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="w">  </span>--components<span class="w"> </span>COMPONENTS<span class="w">     </span>Componentes<span class="w"> </span>específicos<span class="w"> </span><span class="o">(</span>server,controller,repo<span class="o">)</span>
+<span class="w">  </span>--export-csv<span class="w">              </span>Exportar<span class="w"> </span>datos<span class="w"> </span>a<span class="w"> </span>CSV
+<span class="w">  </span>--export-prometheus<span class="w">       </span>Formato<span class="w"> </span>Prometheus
+<span class="w">  </span>--output<span class="w"> </span>PATH<span class="w">             </span>Directorio<span class="w"> </span>de<span class="w"> </span>salida
+<span class="w">  </span>--silent<span class="w">                  </span>Sin<span class="w"> </span>salida<span class="w"> </span>en<span class="w"> </span>pantalla
+<span class="w">  </span>--alert-thresholds<span class="w"> </span>FILE<span class="w">   </span>Archivo<span class="w"> </span>de<span class="w"> </span>configuración<span class="w"> </span>de<span class="w"> </span>alertas
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Monitoreo<span class="w"> </span>completado<span class="w"> </span>exitosamente
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Error<span class="w"> </span>de<span class="w"> </span>configuración
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Error<span class="w"> </span>de<span class="w"> </span>conectividad<span class="w"> </span>K8s
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Alertas<span class="w"> </span>críticas<span class="w"> </span>detectadas
+</code></pre></div></td></tr></table></div>
+<h3 id="metricas-api">Métricas API<a class="headerlink" href="#metricas-api" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Obtener métricas específicas</span>
+./performance_monitor.sh<span class="w"> </span>--components<span class="w"> </span>server<span class="w"> </span>--duration<span class="w"> </span><span class="m">1</span><span class="w"> </span>--export-json
+
+<span class="c1"># Salida JSON estructura:</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-08-22T14:30:00Z&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;duration_minutes&quot;</span>:<span class="w"> </span><span class="m">1</span>,
+<span class="w">  </span><span class="s2">&quot;components&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;argocd-server&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;cpu_percent&quot;</span>:<span class="w"> </span><span class="m">45</span>.2,
+<span class="w">      </span><span class="s2">&quot;memory_mb&quot;</span>:<span class="w"> </span><span class="m">1234</span>,
+<span class="w">      </span><span class="s2">&quot;memory_percent&quot;</span>:<span class="w"> </span><span class="m">61</span>.7,
+<span class="w">      </span><span class="s2">&quot;requests_per_second&quot;</span>:<span class="w"> </span><span class="m">23</span>.4,
+<span class="w">      </span><span class="s2">&quot;response_time_ms&quot;</span>:<span class="w"> </span><span class="m">145</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="s2">&quot;alerts&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;severity&quot;</span>:<span class="w"> </span><span class="s2">&quot;warning&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;component&quot;</span>:<span class="w"> </span><span class="s2">&quot;argocd-server&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;metric&quot;</span>:<span class="w"> </span><span class="s2">&quot;memory_percent&quot;</span>,<span class="w"> </span>
+<span class="w">      </span><span class="s2">&quot;value&quot;</span>:<span class="w"> </span><span class="m">61</span>.7,
+<span class="w">      </span><span class="s2">&quot;threshold&quot;</span>:<span class="w"> </span><span class="m">60</span>.0
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="security-analyzer-api">🔐 Security Analyzer API<a class="headerlink" href="#security-analyzer-api" title="Permanent link">&para;</a></h2>
+<h3 id="cli-interface_1">CLI Interface<a class="headerlink" href="#cli-interface_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del Security Analyzer</span>
+./Security_analyzer/security_analyzer.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--category<span class="w"> </span>CATEGORY<span class="w">        </span>Categoría<span class="w"> </span>específica<span class="w"> </span>de<span class="w"> </span>análisis
+<span class="w">  </span>--compliance<span class="w"> </span>FRAMEWORK<span class="w">     </span>Framework<span class="w"> </span>de<span class="w"> </span>compliance<span class="w"> </span><span class="o">(</span>soc2,<span class="w"> </span>iso27001<span class="o">)</span>
+<span class="w">  </span>--export-json<span class="w">             </span>Exportar<span class="w"> </span>reporte<span class="w"> </span>en<span class="w"> </span>JSON
+<span class="w">  </span>--export-html<span class="w">             </span>Generar<span class="w"> </span>reporte<span class="w"> </span>HTML
+<span class="w">  </span>--silent<span class="w">                  </span>Modo<span class="w"> </span>silencioso<span class="w"> </span>para<span class="w"> </span>CI/CD
+<span class="w">  </span>--exit-code<span class="w">               </span>Exit<span class="w"> </span>code<span class="w"> </span>basado<span class="w"> </span>en<span class="w"> </span>security<span class="w"> </span>score
+<span class="w">  </span>--auto-fix<span class="w">                </span>Aplicar<span class="w"> </span>correcciones<span class="w"> </span>automáticas
+<span class="w">  </span>--baseline<span class="w"> </span>FILE<span class="w">           </span>Comparar<span class="w"> </span>con<span class="w"> </span>baseline<span class="w"> </span>de<span class="w"> </span>seguridad
+
+Categories:
+<span class="w">  </span>authentication<span class="w">    </span>Análisis<span class="w"> </span>de<span class="w"> </span>autenticación<span class="w"> </span>y<span class="w"> </span>SSO
+<span class="w">  </span>authorization<span class="w">     </span>RBAC<span class="w"> </span>y<span class="w"> </span>políticas<span class="w"> </span>de<span class="w"> </span>autorización<span class="w">  </span>
+<span class="w">  </span>network<span class="w">           </span>Seguridad<span class="w"> </span>de<span class="w"> </span>red<span class="w"> </span>y<span class="w"> </span>TLS
+<span class="w">  </span>secrets<span class="w">           </span>Gestión<span class="w"> </span>y<span class="w"> </span>análisis<span class="w"> </span>de<span class="w"> </span>secretos
+<span class="w">  </span>compliance<span class="w">        </span>Verificación<span class="w"> </span>de<span class="w"> </span>compliance
+<span class="w">  </span>all<span class="w">              </span>Análisis<span class="w"> </span>completo<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Security<span class="w"> </span>score<span class="w"> </span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="o">(</span>Good<span class="o">)</span>
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Security<span class="w"> </span>score<span class="w"> </span><span class="m">60</span>-79<span class="w"> </span><span class="o">(</span>Fair<span class="o">)</span><span class="w"> </span>
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Security<span class="w"> </span>score<span class="w"> </span>&lt;<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">(</span>Poor<span class="o">)</span>
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Error<span class="w"> </span>durante<span class="w"> </span>análisis
+</code></pre></div></td></tr></table></div>
+<h3 id="json-output-schema">JSON Output Schema<a class="headerlink" href="#json-output-schema" title="Permanent link">&para;</a></h3>
+<div class="language-json highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;security_analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-08-22T14:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;overall_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;grade&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Good&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;categories&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;authentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;good&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;issues&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Session timeout too long&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Current session timeout is 24h, recommend 8h&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;remediation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Update session timeout in dex configuration&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;compliance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;soc2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;needs_improvement&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;missing_controls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CC6.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CC6.3&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;recommendations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;high&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secrets&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable encryption at rest&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;impact&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Improves data protection compliance&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="orphan-analyzer-api">🕵️ Orphan Analyzer API<a class="headerlink" href="#orphan-analyzer-api" title="Permanent link">&para;</a></h2>
+<h3 id="cli-interface_2">CLI Interface<a class="headerlink" href="#cli-interface_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del Orphan Analyzer</span>
+./Orphan_resources_analyzer/orphan_analyzer.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--namespace<span class="w"> </span>NAMESPACE<span class="w">      </span>Namespace<span class="w"> </span>específico<span class="w"> </span><span class="o">(</span>default:<span class="w"> </span>all<span class="o">)</span>
+<span class="w">  </span>--resource-type<span class="w"> </span>TYPE<span class="w">       </span>Tipo<span class="w"> </span>de<span class="w"> </span>recurso<span class="w"> </span>específico
+<span class="w">  </span>--risk-level<span class="w"> </span>LEVEL<span class="w">         </span>Filtrar<span class="w"> </span>por<span class="w"> </span>nivel<span class="w"> </span>de<span class="w"> </span>riesgo<span class="w"> </span><span class="o">(</span>safe,<span class="w"> </span>moderate,<span class="w"> </span>risky<span class="o">)</span>
+<span class="w">  </span>--export-cleanup-script<span class="w">    </span>Generar<span class="w"> </span>script<span class="w"> </span>de<span class="w"> </span>limpieza
+<span class="w">  </span>--dry-run<span class="w">                  </span>Solo<span class="w"> </span>análisis,<span class="w"> </span>no<span class="w"> </span>generar<span class="w"> </span>scripts
+<span class="w">  </span>--exclude-system<span class="w">           </span>Excluir<span class="w"> </span>recursos<span class="w"> </span>del<span class="w"> </span>sistema
+<span class="w">  </span>--output-format<span class="w"> </span>FORMAT<span class="w">     </span>Formato<span class="w"> </span>de<span class="w"> </span>salida<span class="w"> </span><span class="o">(</span>table,<span class="w"> </span>json,<span class="w"> </span>csv<span class="o">)</span>
+
+Resource<span class="w"> </span>Types:
+<span class="w">  </span>deployments,<span class="w"> </span>services,<span class="w"> </span>configmaps,<span class="w"> </span>secrets,<span class="w"> </span>ingresses,
+<span class="w">  </span>persistentvolumeclaims,<span class="w"> </span>jobs,<span class="w"> </span>cronjobs,<span class="w"> </span>all
+
+Risk<span class="w"> </span>Levels:
+<span class="w">  </span>safe<span class="w">       </span>Recursos<span class="w"> </span>seguros<span class="w"> </span>para<span class="w"> </span>eliminar
+<span class="w">  </span>moderate<span class="w">   </span>Requieren<span class="w"> </span>revisión<span class="w"> </span>manual
+<span class="w">  </span>risky<span class="w">      </span>No<span class="w"> </span>recomendado<span class="w"> </span>eliminar<span class="w"> </span>automáticamente
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Análisis<span class="w"> </span>completado,<span class="w"> </span>no<span class="w"> </span>hay<span class="w"> </span>recursos<span class="w"> </span>huérfanos
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Error<span class="w"> </span>durante<span class="w"> </span>análisis
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Recursos<span class="w"> </span>huérfanos<span class="w"> </span>encontrados
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Recursos<span class="w"> </span>de<span class="w"> </span>alto<span class="w"> </span>riesgo<span class="w"> </span>detectados
+</code></pre></div></td></tr></table></div>
+<h2 id="inspector-api">🔧 Inspector API<a class="headerlink" href="#inspector-api" title="Permanent link">&para;</a></h2>
+<h3 id="cli-interface_3">CLI Interface<a class="headerlink" href="#cli-interface_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del ArgoCD Inspector</span>
+./Check_resources_and_healthcheck/inspect_argocd.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--config-only<span class="w">             </span>Solo<span class="w"> </span>análisis<span class="w"> </span>de<span class="w"> </span>configuración
+<span class="w">  </span>--resources-only<span class="w">          </span>Solo<span class="w"> </span>análisis<span class="w"> </span>de<span class="w"> </span>recursos
+<span class="w">  </span>--include-apps<span class="w">            </span>Incluir<span class="w"> </span>análisis<span class="w"> </span>de<span class="w"> </span>aplicaciones
+<span class="w">  </span>--export-markdown<span class="w">         </span>Exportar<span class="w"> </span>reporte<span class="w"> </span>a<span class="w"> </span>Markdown
+<span class="w">  </span>--export-json<span class="w">             </span>Exportar<span class="w"> </span>reporte<span class="w"> </span>a<span class="w"> </span>JSON
+<span class="w">  </span>--webhook<span class="w"> </span>URL<span class="w">             </span>Enviar<span class="w"> </span>reporte<span class="w"> </span>a<span class="w"> </span>webhook
+<span class="w">  </span>--namespace<span class="w"> </span>NAMESPACE<span class="w">     </span>Namespace<span class="w"> </span>de<span class="w"> </span>ArgoCD
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Inspección<span class="w"> </span>completada<span class="w"> </span>-<span class="w"> </span>Sistema<span class="w"> </span>saludable
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Advertencias<span class="w"> </span>detectadas
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Problemas<span class="w"> </span>críticos<span class="w"> </span>encontrados
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Error<span class="w"> </span>durante<span class="w"> </span>inspección
+</code></pre></div></td></tr></table></div>
+<h2 id="pre-update-validation-api">📋 Pre-update Validation API<a class="headerlink" href="#pre-update-validation-api" title="Permanent link">&para;</a></h2>
+<h3 id="cli-interface_4">CLI Interface<a class="headerlink" href="#cli-interface_4" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># API del Pre-update Check</span>
+./Pre-update_check/pre-validation.sh<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+<span class="w">  </span>--quick<span class="w">                   </span>Validación<span class="w"> </span>rápida<span class="w"> </span><span class="o">(</span>checks<span class="w"> </span>básicos<span class="o">)</span>
+<span class="w">  </span>--redis-only<span class="w">             </span>Solo<span class="w"> </span>validar<span class="w"> </span>Redis<span class="w"> </span>HA
+<span class="w">  </span>--include-apps<span class="w">            </span>Incluir<span class="w"> </span>validación<span class="w"> </span>de<span class="w"> </span>aplicaciones
+<span class="w">  </span>--skip-resources<span class="w">         </span>Saltar<span class="w"> </span>validación<span class="w"> </span>de<span class="w"> </span>recursos
+<span class="w">  </span>--export-report<span class="w">          </span>Exportar<span class="w"> </span>reporte<span class="w"> </span>de<span class="w"> </span>validación
+<span class="w">  </span>--fail-fast<span class="w">              </span>Terminar<span class="w"> </span>en<span class="w"> </span>primera<span class="w"> </span>falla
+
+Validation<span class="w"> </span>Categories:
+<span class="w">  </span>-<span class="w"> </span>System<span class="w"> </span>health<span class="w"> </span><span class="o">(</span>pods,<span class="w"> </span>services<span class="o">)</span>
+<span class="w">  </span>-<span class="w"> </span>Redis<span class="w"> </span>HA<span class="w"> </span>connectivity<span class="w">  </span>
+<span class="w">  </span>-<span class="w"> </span>Application<span class="w"> </span>sync<span class="w"> </span>status
+<span class="w">  </span>-<span class="w"> </span>Resource<span class="w"> </span>utilization
+<span class="w">  </span>-<span class="w"> </span>Network<span class="w"> </span>connectivity
+<span class="w">  </span>-<span class="w"> </span>Configuration<span class="w"> </span>validation
+
+Exit<span class="w"> </span>Codes:
+<span class="w">  </span><span class="m">0</span><span class="w">    </span>Todas<span class="w"> </span>las<span class="w"> </span>validaciones<span class="w"> </span>pasaron
+<span class="w">  </span><span class="m">1</span><span class="w">    </span>Advertencias<span class="w"> </span>encontradas<span class="w"> </span><span class="o">(</span>seguro<span class="w"> </span>continuar<span class="o">)</span>
+<span class="w">  </span><span class="m">2</span><span class="w">    </span>Validaciones<span class="w"> </span>críticas<span class="w"> </span>fallaron
+<span class="w">  </span><span class="m">3</span><span class="w">    </span>Error<span class="w"> </span>durante<span class="w"> </span>validación
+</code></pre></div></td></tr></table></div>
+<h2 id="integration-apis">🔗 Integration APIs<a class="headerlink" href="#integration-apis" title="Permanent link">&para;</a></h2>
+<h3 id="webhook-integration">Webhook Integration<a class="headerlink" href="#webhook-integration" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Configurar webhooks para notificaciones</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SLACK_WEBHOOK</span><span class="o">=</span><span class="s2">&quot;https://hooks.slack.com/services/...&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TEAMS_WEBHOOK</span><span class="o">=</span><span class="s2">&quot;https://company.webhook.office.com/...&quot;</span>
+
+<span class="c1"># Todas las herramientas soportan webhooks</span>
+./any_tool.sh<span class="w"> </span>--webhook<span class="w"> </span><span class="nv">$SLACK_WEBHOOK</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="prometheus-integration">Prometheus Integration<a class="headerlink" href="#prometheus-integration" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exportar métricas para Prometheus</span>
+./performance_monitor.sh<span class="w"> </span>--export-prometheus<span class="w"> </span>&gt;<span class="w"> </span>argocd_metrics.prom
+
+<span class="c1"># Metrics disponibles:</span>
+<span class="c1"># argocd_cpu_usage_percent{component=&quot;server&quot;}</span>
+<span class="c1"># argocd_memory_usage_mb{component=&quot;controller&quot;}  </span>
+<span class="c1"># argocd_response_time_ms{endpoint=&quot;/api/v1/applications&quot;}</span>
+<span class="c1"># argocd_sync_duration_seconds{application=&quot;frontend&quot;}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h3>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># GitHub Actions example</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ArgoCD Security Check</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">./Security_analyzer/security_analyzer.sh --silent --exit-code</span>
+<span class="w">    </span><span class="no">if [ $? -eq 2 ]; then</span>
+<span class="w">      </span><span class="no">echo &quot;Security score too low, blocking deployment&quot;</span>
+<span class="w">      </span><span class="no">exit 1</span>
+<span class="w">    </span><span class="no">fi</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pre-deployment Validation</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">./Pre-update_check/pre-validation.sh --quick --export-report</span>
+<span class="w">    </span><span class="no"># Upload validation report as artifact</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="monitoring-integration">📊 Monitoring Integration<a class="headerlink" href="#monitoring-integration" title="Permanent link">&para;</a></h2>
+<h3 id="grafana-dashboard-api">Grafana Dashboard API<a class="headerlink" href="#grafana-dashboard-api" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exportar métricas para Grafana</span>
+./performance_monitor.sh<span class="w"> </span>--duration<span class="w"> </span><span class="m">60</span><span class="w"> </span>--export-json<span class="w"> </span>&gt;<span class="w"> </span>metrics.json
+
+<span class="c1"># Estructura compatible con Grafana:</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;dashboard&quot;</span>:<span class="w"> </span><span class="s2">&quot;ArgoCD Performance&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;panels&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;title&quot;</span>:<span class="w"> </span><span class="s2">&quot;CPU Usage&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;targets&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="o">{</span>
+<span class="w">          </span><span class="s2">&quot;expr&quot;</span>:<span class="w"> </span><span class="s2">&quot;argocd_cpu_usage_percent&quot;</span>,
+<span class="w">          </span><span class="s2">&quot;legendFormat&quot;</span>:<span class="w"> </span><span class="s2">&quot;{{component}}&quot;</span>
+<span class="w">        </span><span class="o">}</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="siem-integration">SIEM Integration<a class="headerlink" href="#siem-integration" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Exportar logs de seguridad para SIEM</span>
+./security_analyzer.sh<span class="w"> </span>--export-json<span class="w"> </span>--siem-format
+
+<span class="c1"># Output compatible con Splunk, ELK, etc.</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;event_type&quot;</span>:<span class="w"> </span><span class="s2">&quot;security_analysis&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;timestamp&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-08-22T14:30:00Z&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;source&quot;</span>:<span class="w"> </span><span class="s2">&quot;argocd_security_analyzer&quot;</span>,<span class="w"> </span>
+<span class="w">  </span><span class="s2">&quot;severity&quot;</span>:<span class="w"> </span><span class="s2">&quot;medium&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;category&quot;</span>:<span class="w"> </span><span class="s2">&quot;authentication&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Weak session timeout detected&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;current_timeout&quot;</span>:<span class="w"> </span><span class="s2">&quot;24h&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;recommended_timeout&quot;</span>:<span class="w"> </span><span class="s2">&quot;8h&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="api-support">📞 API Support<a class="headerlink" href="#api-support" title="Permanent link">&para;</a></h2>
+<h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
+<p>Todas las herramientas siguen el mismo patrón de manejo de errores:
+- Exit codes estándar (0=success, 1+=error)
+- Logs estructurados con timestamps
+- Mensajes de error descriptivos
+- Códigos de error específicos por herramienta</p>
+<h3 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Llamadas a Kubernetes API: Respeta los rate limits del cluster</li>
+<li>Operaciones concurrentes: Limitadas por defecto</li>
+<li>Timeouts configurables: Para operaciones de larga duración</li>
+</ul>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Usa kubeconfig del usuario actual</li>
+<li>Respeta RBAC policies de Kubernetes</li>
+<li>No requiere credenciales adicionales</li>
+<li>Soporte para service accounts</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../security/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Security">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Security
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../troubleshooting/" class="md-footer__link md-footer__link--next" aria-label="Next: Troubleshooting">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Troubleshooting
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.action.edit"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>

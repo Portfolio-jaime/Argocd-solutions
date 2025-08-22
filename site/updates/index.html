@@ -1,0 +1,1859 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive ArgoCD management and diagnostic tools">
+      
+      
+      
+      
+        <link rel="prev" href="../validation/">
+      
+      
+        <link rel="next" href="../performance/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>Updates - ArgoCD Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#herramientas-de-actualizacion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ArgoCD Solutions" class="md-header__button md-logo" aria-label="ArgoCD Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ArgoCD Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Updates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Portfolio-jaime/Argocd-solutions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ArgoCD Solutions" class="md-nav__button md-logo" aria-label="ArgoCD Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ArgoCD Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Portfolio-jaime/Argocd-solutions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maintenance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Updates
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Updates
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#safe-crd-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Safe CRD Upgrade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Safe CRD Upgrade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descripción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-destacadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características Destacadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-trabajo-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Trabajo TUI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crd-updater" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 CRD Updater
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 CRD Updater">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descripción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubicacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características Avanzadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proceso de Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-de-crds-actuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Verificación de CRDs Actuales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Verificación de CRDs Actuales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-current-crds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Current CRDs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporte-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporte de Estado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategias-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Estrategias de Actualización
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Estrategias de Actualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-blue-green" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actualización Blue-Green
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-rolling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actualización Rolling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-y-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔙 Rollback y Recuperación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔙 Rollback y Recuperación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rollback-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rollback Automático
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperacion-de-emergencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recuperación de Emergencia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-avanzada" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Configuración Avanzada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Configuración Avanzada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-de-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables de Entorno
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de Backup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoreo-de-actualizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Monitoreo de Actualizaciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Monitoreo de Actualizaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas-post-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas Post-Actualización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alertas-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alertas de Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mejores-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Mejores Prácticas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Mejores Prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Actualización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#durante-la-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durante la Actualización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      📞 Soporte
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 Soporte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escalacion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalación de Problemas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursos Adicionales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#safe-crd-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Safe CRD Upgrade
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Safe CRD Upgrade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descripción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-destacadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características Destacadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-trabajo-tui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Trabajo TUI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crd-updater" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 CRD Updater
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 CRD Updater">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Descripción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubicacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características Avanzadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proceso de Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-de-crds-actuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Verificación de CRDs Actuales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Verificación de CRDs Actuales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-current-crds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Current CRDs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporte-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporte de Estado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategias-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Estrategias de Actualización
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Estrategias de Actualización">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-blue-green" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actualización Blue-Green
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-rolling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actualización Rolling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-y-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔙 Rollback y Recuperación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔙 Rollback y Recuperación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rollback-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rollback Automático
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperacion-de-emergencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recuperación de Emergencia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-avanzada" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Configuración Avanzada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Configuración Avanzada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-de-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables de Entorno
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de Backup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoreo-de-actualizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Monitoreo de Actualizaciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Monitoreo de Actualizaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas-post-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas Post-Actualización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alertas-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alertas de Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mejores-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Mejores Prácticas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Mejores Prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-Actualización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#durante-la-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durante la Actualización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      📞 Soporte
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 Soporte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escalacion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalación de Problemas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursos Adicionales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Portfolio-jaime/Argocd-solutions/edit/main/docs/updates.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="herramientas-de-actualizacion">Herramientas de Actualización<a class="headerlink" href="#herramientas-de-actualizacion" title="Permanent link">&para;</a></h1>
+<p>Esta sección describe las herramientas para actualizar ArgoCD y sus CRDs de forma segura.</p>
+<h2 id="safe-crd-upgrade">🔄 Safe CRD Upgrade<a class="headerlink" href="#safe-crd-upgrade" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">&para;</a></h3>
+<p>Herramienta TUI (Terminal User Interface) para actualizar CRDs de ArgoCD de forma segura con interfaz interactiva.</p>
+<h3 id="ubicacion">Ubicación<a class="headerlink" href="#ubicacion" title="Permanent link">&para;</a></h3>
+<p><code>Check_crds_compatibilitie/safe_crd_upgrade_tui.sh</code></p>
+<h3 id="caracteristicas-destacadas">Características Destacadas<a class="headerlink" href="#caracteristicas-destacadas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Menú Interactivo</strong>: Las últimas 10 versiones de ArgoCD desde GitHub</li>
+<li><strong>Clonación Automática</strong>: Descarga el repo de ArgoCD en la versión elegida</li>
+<li><strong>Backup Automático</strong>: Respaldo de CRDs actuales antes de actualizar</li>
+<li><strong>Diff Visualization</strong>: Comparación vs versión actual antes de aplicar</li>
+<li><strong>Validación</strong>: Verificación con recursos existentes</li>
+</ul>
+<h3 id="uso">Uso<a class="headerlink" href="#uso" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Ejecutar interfaz TUI</span>
+./Check_crds_compatibilitie/safe_crd_upgrade_tui.sh
+
+<span class="c1"># Modo no interactivo con versión específica</span>
+./Check_crds_compatibilitie/safe_crd_upgrade_tui.sh<span class="w"> </span>--version<span class="w"> </span>v2.11.3
+
+<span class="c1"># Solo backup sin actualizar</span>
+./Check_crds_compatibilitie/safe_crd_upgrade_tui.sh<span class="w"> </span>--backup-only
+</code></pre></div></td></tr></table></div>
+<h3 id="flujo-de-trabajo-tui">Flujo de Trabajo TUI<a class="headerlink" href="#flujo-de-trabajo-tui" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code>🔄<span class="w"> </span>ArgoCD<span class="w"> </span>Safe<span class="w"> </span>CRD<span class="w"> </span>Upgrade<span class="w"> </span><span class="nv">Tool</span>
+<span class="o">=====================================</span>
+
+📋<span class="w"> </span>Available<span class="w"> </span>Versions:
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>v2.11.3<span class="w"> </span><span class="o">(</span>Latest<span class="w"> </span>Stable<span class="o">)</span>
+<span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>v2.11.2
+<span class="o">[</span><span class="m">3</span><span class="o">]</span><span class="w"> </span>v2.11.1<span class="w">  </span>
+<span class="o">[</span><span class="m">4</span><span class="o">]</span><span class="w"> </span>v2.11.0
+<span class="o">[</span><span class="m">5</span><span class="o">]</span><span class="w"> </span>v2.10.9
+<span class="o">[</span><span class="m">6</span><span class="o">]</span><span class="w"> </span>v2.10.8
+<span class="o">[</span><span class="m">7</span><span class="o">]</span><span class="w"> </span>v2.10.7
+<span class="o">[</span><span class="m">8</span><span class="o">]</span><span class="w"> </span>v2.10.6
+<span class="o">[</span><span class="m">9</span><span class="o">]</span><span class="w"> </span>v2.10.5
+<span class="o">[</span><span class="m">10</span><span class="o">]</span><span class="w"> </span>v2.10.4
+
+Select<span class="w"> </span>version<span class="w"> </span>to<span class="w"> </span>upgrade<span class="w"> </span>to:<span class="w"> </span><span class="m">1</span>
+
+🔍<span class="w"> </span>Selected:<span class="w"> </span>v2.11.3
+📥<span class="w"> </span>Downloading<span class="w"> </span>ArgoCD<span class="w"> </span>manifests...
+💾<span class="w"> </span>Creating<span class="w"> </span>backup<span class="w"> </span>of<span class="w"> </span>current<span class="w"> </span>CRDs...
+📊<span class="w"> </span>Analyzing<span class="w"> </span>differences...
+
+🔧<span class="w"> </span>Changes<span class="w"> </span>Summary:
+-<span class="w"> </span>applications.argoproj.io:<span class="w"> </span>Minor<span class="w"> </span>schema<span class="w"> </span>updates
+-<span class="w"> </span>appprojects.argoproj.io:<span class="w"> </span>New<span class="w"> </span>optional<span class="w"> </span>fields
+-<span class="w"> </span>applicationsets.argoproj.io:<span class="w"> </span>Enhanced<span class="w"> </span>spec
+
+⚠️<span class="w">  </span>Breaking<span class="w"> </span>Changes:<span class="w"> </span>None<span class="w"> </span>detected
+✅<span class="w"> </span>Validation:<span class="w"> </span>All<span class="w"> </span>existing<span class="w"> </span>resources<span class="w"> </span>compatible
+
+Proceed<span class="w"> </span>with<span class="w"> </span>upgrade?<span class="w"> </span><span class="o">[</span>y/N<span class="o">]</span>:<span class="w"> </span>y
+</code></pre></div></td></tr></table></div>
+<h3 id="backup-management">Backup Management<a class="headerlink" href="#backup-management" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Ubicación de backups</span>
+crd_backups/
+├──<span class="w"> </span>backup_20250822_143025/
+│<span class="w">   </span>├──<span class="w"> </span>applications.argoproj.io.yaml
+│<span class="w">   </span>├──<span class="w"> </span>appprojects.argoproj.io.yaml
+│<span class="w">   </span>├──<span class="w"> </span>applicationsets.argoproj.io.yaml
+│<span class="w">   </span>└──<span class="w"> </span>backup_metadata.json
+
+<span class="c1"># Restaurar desde backup</span>
+./safe_crd_upgrade_tui.sh<span class="w"> </span>--restore<span class="w"> </span>backup_20250822_143025
+</code></pre></div></td></tr></table></div>
+<h2 id="crd-updater">🔧 CRD Updater<a class="headerlink" href="#crd-updater" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion_1">Descripción<a class="headerlink" href="#descripcion_1" title="Permanent link">&para;</a></h3>
+<p>Herramienta especializada para actualizar CRDs a versiones específicas con configuración avanzada.</p>
+<h3 id="ubicacion_1">Ubicación<a class="headerlink" href="#ubicacion_1" title="Permanent link">&para;</a></h3>
+<p><code>Update_argocd_crds/argocd-crd-updater.sh</code></p>
+<h3 id="caracteristicas-avanzadas">Características Avanzadas<a class="headerlink" href="#caracteristicas-avanzadas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Configuración Específica</strong>: Optimizado para versión v2.14.11</li>
+<li><strong>Backup con Timestamp</strong>: Directorios organizados por fecha/hora</li>
+<li><strong>Descarga Automática</strong>: CRDs desde repositorio oficial de ArgoCD</li>
+<li><strong>Verificación de Esquemas</strong>: Validación de compatibilidad</li>
+<li><strong>Rollback Automático</strong>: En caso de fallo durante la actualización</li>
+</ul>
+<h3 id="uso_1">Uso<a class="headerlink" href="#uso_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Actualización estándar</span>
+./Update_argocd_crds/argocd-crd-updater.sh
+
+<span class="c1"># Actualización a versión específica</span>
+./Update_argocd_crds/argocd-crd-updater.sh<span class="w"> </span>--version<span class="w"> </span>v2.11.3
+
+<span class="c1"># Modo dry-run (simulación)</span>
+./Update_argocd_crds/argocd-crd-updater.sh<span class="w"> </span>--dry-run
+
+<span class="c1"># Forzar actualización (sin confirmaciones)</span>
+./Update_argocd_crds/argocd-crd-updater.sh<span class="w"> </span>--force
+</code></pre></div></td></tr></table></div>
+<h3 id="proceso-de-actualizacion">Proceso de Actualización<a class="headerlink" href="#proceso-de-actualizacion" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code>🔧<span class="w"> </span>ArgoCD<span class="w"> </span>CRD<span class="w"> </span><span class="nv">Updater</span>
+<span class="o">=====================</span>
+
+📋<span class="w"> </span>Current<span class="w"> </span>Status:
+-<span class="w"> </span>ArgoCD<span class="w"> </span>Version:<span class="w"> </span>v2.10.9
+-<span class="w"> </span>CRDs<span class="w"> </span>Version:<span class="w"> </span>v2.10.9
+-<span class="w"> </span>Target<span class="w"> </span>Version:<span class="w"> </span>v2.11.3
+
+🔍<span class="w"> </span>Pre-flight<span class="w"> </span>Checks:
+✅<span class="w"> </span>Kubernetes<span class="w"> </span>connectivity
+✅<span class="w"> </span>Permissions<span class="w"> </span>verified
+✅<span class="w"> </span>ArgoCD<span class="w"> </span>namespace<span class="w"> </span>accessible
+✅<span class="w"> </span>Current<span class="w"> </span>CRDs<span class="w"> </span>backup<span class="w"> </span>ready
+
+📥<span class="w"> </span>Download<span class="w"> </span>Phase:
+-<span class="w"> </span>Fetching<span class="w"> </span>CRDs<span class="w"> </span>from:<span class="w"> </span>github.com/argoproj/argo-cd/v2.11.3
+-<span class="w"> </span>Validating<span class="w"> </span>checksums
+-<span class="w"> </span>Extracting<span class="w"> </span>manifests
+
+🔄<span class="w"> </span>Update<span class="w"> </span>Phase:
+<span class="o">[</span><span class="m">1</span>/4<span class="o">]</span><span class="w"> </span>Updating<span class="w"> </span>applications.argoproj.io...<span class="w"> </span>✅
+<span class="o">[</span><span class="m">2</span>/4<span class="o">]</span><span class="w"> </span>Updating<span class="w"> </span>appprojects.argoproj.io...<span class="w"> </span>✅<span class="w">  </span>
+<span class="o">[</span><span class="m">3</span>/4<span class="o">]</span><span class="w"> </span>Updating<span class="w"> </span>applicationsets.argoproj.io...<span class="w"> </span>✅
+<span class="o">[</span><span class="m">4</span>/4<span class="o">]</span><span class="w"> </span>Updating<span class="w"> </span>workflows.argoproj.io...<span class="w"> </span>✅
+
+✅<span class="w"> </span>CRD<span class="w"> </span>Update<span class="w"> </span>Completed<span class="w"> </span>Successfully!
+
+🔍<span class="w"> </span>Post-Update<span class="w"> </span>Validation:
+-<span class="w"> </span>Schema<span class="w"> </span>validation:<span class="w"> </span>✅<span class="w"> </span>Passed
+-<span class="w"> </span>Existing<span class="w"> </span>resources:<span class="w"> </span>✅<span class="w"> </span>Compatible
+-<span class="w"> </span>API<span class="w"> </span>endpoints:<span class="w"> </span>✅<span class="w"> </span>Responsive
+</code></pre></div></td></tr></table></div>
+<h2 id="verificacion-de-crds-actuales">📊 Verificación de CRDs Actuales<a class="headerlink" href="#verificacion-de-crds-actuales" title="Permanent link">&para;</a></h2>
+<h3 id="check-current-crds">Check Current CRDs<a class="headerlink" href="#check-current-crds" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Verificar estado actual</span>
+./Update_argocd_crds/check-current-crds.sh
+
+<span class="c1"># Comparar con versión objetivo</span>
+./Update_argocd_crds/check-current-crds.sh<span class="w"> </span>--compare<span class="w"> </span>v2.11.3
+
+<span class="c1"># Listar todas las versiones disponibles</span>
+./Update_argocd_crds/check-current-crds.sh<span class="w"> </span>--list-versions
+</code></pre></div></td></tr></table></div>
+<h3 id="reporte-de-estado">Reporte de Estado<a class="headerlink" href="#reporte-de-estado" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>Current<span class="w"> </span>CRD<span class="w"> </span>Status<span class="w"> </span>Report:
+<span class="o">=========================</span>
+
+📦<span class="w"> </span>Installed<span class="w"> </span>CRDs:
+-<span class="w"> </span>applications.argoproj.io<span class="w"> </span><span class="o">(</span>v1alpha1<span class="o">)</span><span class="w"> </span>-<span class="w"> </span>v2.10.9
+-<span class="w"> </span>appprojects.argoproj.io<span class="w"> </span><span class="o">(</span>v1alpha1<span class="o">)</span><span class="w"> </span>-<span class="w"> </span>v2.10.9
+-<span class="w"> </span>applicationsets.argoproj.io<span class="w"> </span><span class="o">(</span>v1alpha1<span class="o">)</span><span class="w"> </span>-<span class="w"> </span>v2.10.9
+
+🔍<span class="w"> </span>Schema<span class="w"> </span>Analysis:
+-<span class="w"> </span>Total<span class="w"> </span>Fields:<span class="w"> </span><span class="m">847</span>
+-<span class="w"> </span>Required<span class="w"> </span>Fields:<span class="w"> </span><span class="m">23</span>
+-<span class="w"> </span>Optional<span class="w"> </span>Fields:<span class="w"> </span><span class="m">824</span>
+-<span class="w"> </span>Deprecated<span class="w"> </span>Fields:<span class="w"> </span><span class="m">2</span>
+
+⚠️<span class="w">  </span>Deprecation<span class="w"> </span>Warnings:
+-<span class="w"> </span>spec.source.path<span class="w"> </span><span class="o">(</span>use<span class="w"> </span>spec.sources<span class="o">[]</span>.path<span class="o">)</span>
+-<span class="w"> </span>spec.destination.namespace<span class="w"> </span><span class="o">(</span>use<span class="w"> </span>spec.destinations<span class="o">[]</span>.namespace<span class="o">)</span>
+
+🎯<span class="w"> </span>Upgrade<span class="w"> </span>Recommendations:
+-<span class="w"> </span>Target:<span class="w"> </span>v2.11.3
+-<span class="w"> </span>Breaking<span class="w"> </span>Changes:<span class="w"> </span>None
+-<span class="w"> </span>Migration<span class="w"> </span>Required:<span class="w"> </span>No
+-<span class="w"> </span>Estimated<span class="w"> </span>Downtime:<span class="w"> </span>&lt;<span class="w"> </span><span class="m">30</span><span class="w"> </span>seconds
+</code></pre></div></td></tr></table></div>
+<h2 id="estrategias-de-actualizacion">🛡️ Estrategias de Actualización<a class="headerlink" href="#estrategias-de-actualizacion" title="Permanent link">&para;</a></h2>
+<h3 id="actualizacion-blue-green">Actualización Blue-Green<a class="headerlink" href="#actualizacion-blue-green" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Paso 1: Crear namespace temporal</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>argocd-upgrade
+
+<span class="c1"># Paso 2: Instalar nueva versión en paralelo</span>
+helm<span class="w"> </span>install<span class="w"> </span>argocd-new<span class="w"> </span>argo/argo-cd<span class="w"> </span>--version<span class="w"> </span><span class="m">5</span>.51.6<span class="w"> </span>-n<span class="w"> </span>argocd-upgrade
+
+<span class="c1"># Paso 3: Migrar configuración</span>
+./migrate-config.sh<span class="w"> </span>argocd<span class="w"> </span>argocd-upgrade
+
+<span class="c1"># Paso 4: Switch de tráfico</span>
+./switch-traffic.sh<span class="w"> </span>argocd-upgrade<span class="w"> </span>argocd
+
+<span class="c1"># Paso 5: Cleanup</span>
+kubectl<span class="w"> </span>delete<span class="w"> </span>namespace<span class="w"> </span>argocd-old
+</code></pre></div></td></tr></table></div>
+<h3 id="actualizacion-rolling">Actualización Rolling<a class="headerlink" href="#actualizacion-rolling" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Paso 1: Actualizar CRDs primero</span>
+./safe_crd_upgrade_tui.sh<span class="w"> </span>--version<span class="w"> </span>v2.11.3
+
+<span class="c1"># Paso 2: Actualizar ArgoCD gradualmente</span>
+helm<span class="w"> </span>upgrade<span class="w"> </span>argocd<span class="w"> </span>argo/argo-cd<span class="w"> </span>--version<span class="w"> </span><span class="m">5</span>.51.6<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>--wait
+
+<span class="c1"># Paso 3: Verificar componente por componente</span>
+./verify-component.sh<span class="w"> </span>controller
+./verify-component.sh<span class="w"> </span>server
+./verify-component.sh<span class="w"> </span>repo-server
+</code></pre></div></td></tr></table></div>
+<h2 id="rollback-y-recuperacion">🔙 Rollback y Recuperación<a class="headerlink" href="#rollback-y-recuperacion" title="Permanent link">&para;</a></h2>
+<h3 id="rollback-automatico">Rollback Automático<a class="headerlink" href="#rollback-automatico" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># En caso de fallo, rollback automático</span>
+./argocd-crd-updater.sh<span class="w"> </span>--rollback-on-failure
+
+<span class="c1"># Rollback manual a backup específico</span>
+./safe_crd_upgrade_tui.sh<span class="w"> </span>--restore<span class="w"> </span>backup_20250822_143025
+
+<span class="c1"># Verificar estado después del rollback</span>
+./check-current-crds.sh<span class="w"> </span>--validate
+</code></pre></div></td></tr></table></div>
+<h3 id="recuperacion-de-emergencia">Recuperación de Emergencia<a class="headerlink" href="#recuperacion-de-emergencia" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Escenario: CRDs corruptos</span>
+<span class="c1"># 1. Restore desde backup</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>crd_backups/backup_20250822_143025/
+
+<span class="c1"># 2. Restart ArgoCD components</span>
+kubectl<span class="w"> </span>rollout<span class="w"> </span>restart<span class="w"> </span>deployment/argocd-server<span class="w"> </span>-n<span class="w"> </span>argocd
+kubectl<span class="w"> </span>rollout<span class="w"> </span>restart<span class="w"> </span>deployment/argocd-repo-server<span class="w"> </span>-n<span class="w"> </span>argocd
+kubectl<span class="w"> </span>rollout<span class="w"> </span>restart<span class="w"> </span>statefulset/argocd-application-controller<span class="w"> </span>-n<span class="w"> </span>argocd
+
+<span class="c1"># 3. Verificar estado</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>applications<span class="w"> </span>-n<span class="w"> </span>argocd
+kubectl<span class="w"> </span>get<span class="w"> </span>appprojects<span class="w"> </span>-n<span class="w"> </span>argocd
+</code></pre></div></td></tr></table></div>
+<h2 id="configuracion-avanzada">🔧 Configuración Avanzada<a class="headerlink" href="#configuracion-avanzada" title="Permanent link">&para;</a></h2>
+<h3 id="variables-de-entorno">Variables de Entorno<a class="headerlink" href="#variables-de-entorno" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Configuración personalizada</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ARGOCD_NAMESPACE</span><span class="o">=</span>argocd
+<span class="nb">export</span><span class="w"> </span><span class="nv">BACKUP_RETENTION_DAYS</span><span class="o">=</span><span class="m">30</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRD_DOWNLOAD_TIMEOUT</span><span class="o">=</span><span class="m">300</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">VALIDATION_TIMEOUT</span><span class="o">=</span><span class="m">60</span>
+
+<span class="c1"># URLs personalizadas</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ARGOCD_REPO_URL</span><span class="o">=</span><span class="s2">&quot;https://github.com/argoproj/argo-cd&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CRD_MANIFEST_PATH</span><span class="o">=</span><span class="s2">&quot;/manifests/crds&quot;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="configuracion-de-backup">Configuración de Backup<a class="headerlink" href="#configuracion-de-backup" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Configurar retención de backups</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>backup_config.yaml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">retention:</span>
+<span class="s">  days: 30</span>
+<span class="s">  max_backups: 50</span>
+<span class="s">  compress: true</span>
+<span class="s">location:</span>
+<span class="s">  path: /backup/argocd-crds</span>
+<span class="s">  s3_bucket: company-argocd-backups</span>
+<span class="s">notification:</span>
+<span class="s">  slack_webhook: https://hooks.slack.com/...</span>
+<span class="s">  email: devops@company.com</span>
+<span class="s">EOF</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="monitoreo-de-actualizaciones">📈 Monitoreo de Actualizaciones<a class="headerlink" href="#monitoreo-de-actualizaciones" title="Permanent link">&para;</a></h2>
+<h3 id="metricas-post-actualizacion">Métricas Post-Actualización<a class="headerlink" href="#metricas-post-actualizacion" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Verificar métricas después de actualizar</span>
+kubectl<span class="w"> </span>top<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>argocd
+kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>--sort-by<span class="o">=</span><span class="s1">&#39;.lastTimestamp&#39;</span>
+
+<span class="c1"># Verificar logs de componentes</span>
+kubectl<span class="w"> </span>logs<span class="w"> </span>-l<span class="w"> </span>app.kubernetes.io/name<span class="o">=</span>argocd-server<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>--tail<span class="o">=</span><span class="m">100</span>
+kubectl<span class="w"> </span>logs<span class="w"> </span>-l<span class="w"> </span>app.kubernetes.io/name<span class="o">=</span>argocd-application-controller<span class="w"> </span>-n<span class="w"> </span>argocd<span class="w"> </span>--tail<span class="o">=</span><span class="m">100</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="alertas-de-actualizacion">Alertas de Actualización<a class="headerlink" href="#alertas-de-actualizacion" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Configurar alertas para actualizaciones</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>update_alerts.yaml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">alerts:</span>
+<span class="s">  - name: CRD_Update_Failed</span>
+<span class="s">    condition: exit_code != 0</span>
+<span class="s">    action: send_slack_alert</span>
+<span class="s">  - name: Long_Update_Time</span>
+<span class="s">    condition: duration &gt; 300s</span>
+<span class="s">    action: send_email_alert</span>
+<span class="s">  - name: High_Resource_Usage</span>
+<span class="s">    condition: cpu_usage &gt; 80%</span>
+<span class="s">    action: scale_up_resources</span>
+<span class="s">EOF</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="mejores-practicas">🚀 Mejores Prácticas<a class="headerlink" href="#mejores-practicas" title="Permanent link">&para;</a></h2>
+<h3 id="pre-actualizacion">Pre-Actualización<a class="headerlink" href="#pre-actualizacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Backup Completo</strong>: Siempre crear backup antes de actualizar</li>
+<li><strong>Testing</strong>: Probar en entorno de staging primero</li>
+<li><strong>Maintenance Window</strong>: Programar en horario de bajo tráfico</li>
+<li><strong>Communication</strong>: Notificar a teams afectados</li>
+</ol>
+<h3 id="durante-la-actualizacion">Durante la Actualización<a class="headerlink" href="#durante-la-actualizacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Monitoreo</strong>: Vigilar métricas en tiempo real</li>
+<li><strong>Rollback Plan</strong>: Tener plan de rollback listo</li>
+<li><strong>Logs</strong>: Mantener logs detallados</li>
+<li><strong>Validation</strong>: Verificar cada paso antes de continuar</li>
+</ol>
+<h3 id="post-actualizacion">Post-Actualización<a class="headerlink" href="#post-actualizacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Verification</strong>: Validar funcionalidad completa</li>
+<li><strong>Performance</strong>: Verificar que el rendimiento sea óptimo</li>
+<li><strong>Documentation</strong>: Documentar cambios realizados</li>
+<li><strong>Cleanup</strong>: Limpiar recursos temporales</li>
+</ol>
+<h2 id="soporte">📞 Soporte<a class="headerlink" href="#soporte" title="Permanent link">&para;</a></h2>
+<h3 id="escalacion-de-problemas">Escalación de Problemas<a class="headerlink" href="#escalacion-de-problemas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Nivel 1</strong>: Rollback automático activado</li>
+<li><strong>Nivel 2</strong>: Intervención manual requerida</li>
+<li><strong>Nivel 3</strong>: Contactar con equipo de ArgoCD upstream</li>
+</ul>
+<h3 id="recursos-adicionales">Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/argoproj/argo-cd/releases">ArgoCD Release Notes</a></li>
+<li><a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/">Breaking Changes Guide</a></li>
+<li><a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/">CRD Migration Guide</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../validation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Validation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../performance/" class="md-footer__link md-footer__link--next" aria-label="Next: Performance">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Performance
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.action.edit"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>
